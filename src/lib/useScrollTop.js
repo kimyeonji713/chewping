@@ -11,5 +11,6 @@ export const useScrollTop = () => {
       behavior: "smooth",
     });
   }, [pathname]);
+
   return;
 };

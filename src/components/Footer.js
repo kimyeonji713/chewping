@@ -1,3 +1,9 @@
+import { Box } from "@chakra-ui/react";
+
 export const Footer = () => {
-  return <div>footer</div>;
+  return (
+    <Box maxW="500px" mx="auto">
+      footer
+    </Box>
+  );
 };
