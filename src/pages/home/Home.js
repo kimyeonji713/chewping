@@ -1,10 +1,12 @@
-import { Box, Button, Image, Img } from "@chakra-ui/react";
+import { Box, Button, flexbox, grid, Image, Img, Text } from "@chakra-ui/react";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { useEffect, useState } from "react";
 import { basedList } from "../../api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { Search2Icon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
+import { routes } from "../../routes";
 
 export const Home = () => {
   // useScrollTop();
@@ -61,12 +63,70 @@ export const Home = () => {
 
   return (
     <Box maxW={500} w="100%" mx="auto">
-      <Box w="100%" h={350} backgroundColor={"lightgreen"}>
+      <Box w="100%" h={350} backgroundColor="#75A47F">
         <Image w="100%" h={350} src={campaign.imgUrl}></Image>
       </Box>
-      <Button w="300px" h="50px" mx="auto" colorScheme="#75A47F">
-        <Search2Icon />
+
+      {/* 메인베너 */}
+
+      <Button
+        w="480px"
+        h="50px"
+        margin="20px 10px"
+        bgColor="#75A47F"
+        borderRadius="25px"
+        colorScheme="#fff"
+      >
+        <Link to={routes.search}>
+          <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+            <Search2Icon color="#fff" marginRight="10px" />
+            <Text fontSize="md" color="#fff">
+              빠른 정보 찾기
+            </Text>
+          </Box>
+        </Link>
       </Button>
+
+      {/* 검색버튼 */}
+      <Box
+        w={"100%"}
+        display={"grid"}
+        gridTemplateColumns={"repeat(2, 1fr)"}
+        rowGap={"20px"}
+        columnGap={"20px"}
+        padding={"10px"}
+      >
+        {baseData?.map((data) => (
+          <Button
+            key={data.contentId}
+            w={"240px"}
+            h={"250px"}
+            bgColor={"#fff"}
+            colorScheme="green"
+          >
+            <Box w={"240px"} h={"250px"}>
+              <Link to={`/detail/${data.contentId}`}>
+                <Box>
+                  <Image
+                    w={"100%"}
+                    objectFit={"cover"}
+                    borderRadius={"20px"}
+                    src={data.firstImageUrl}
+                    alt={data.facltNm}
+                  />
+
+                  <Text color={"#000"} fontSize={"18px"} marginTop={"10px"}>
+                    {data.facltNm}
+                  </Text>
+                  <Text color={"gray.600"} marginTop={"5px"} fontSize={"md"}>
+                    {data.addr1}
+                  </Text>
+                </Box>
+              </Link>
+            </Box>
+          </Button>
+        ))}
+      </Box>
     </Box>
   );
 };
