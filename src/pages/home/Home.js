@@ -1,20 +1,20 @@
-import { Box, Button, flexbox, grid, Image, Img, Text } from "@chakra-ui/react";
+import { Box, Button, Image, Text } from "@chakra-ui/react";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { useEffect, useState } from "react";
-import { basedList, recomList } from "../../api";
+import { recomList } from "../../api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { Search2Icon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes";
-import "swiper/css";
-import { PiDog, PiDogBold, PiDogFill } from "react-icons/pi";
 import { FaCar, FaCaravan, FaMap } from "react-icons/fa";
 import { GiBarracksTent, GiCampingTent } from "react-icons/gi";
 import { SiDatadog } from "react-icons/si";
+import { TopBtn } from "../../components/TopBtn";
+import "swiper/css";
 
 export const Home = () => {
-  // useScrollTop();
+  useScrollTop();
 
   const [recomData, setRecomData] = useState();
 
@@ -282,6 +282,7 @@ export const Home = () => {
           ))}
         </Box>
       </Box>
+      <TopBtn />
     </Box>
   );
 };

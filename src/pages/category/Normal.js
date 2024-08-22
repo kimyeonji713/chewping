@@ -3,8 +3,12 @@ import { scrollList } from "../../api";
 import { useState } from "react";
 import { Box, Image, Text } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { TopBtn } from "../../components/TopBtn";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 export const Normal = () => {
+  useScrollTop();
+
   const [scrollData, setScrollData] = useState();
   const [resultData, setResultData] = useState();
 
@@ -122,6 +126,7 @@ export const Normal = () => {
           </Box>
         </InfiniteScroll>
       )}
+      <TopBtn />
     </Box>
   );
 };

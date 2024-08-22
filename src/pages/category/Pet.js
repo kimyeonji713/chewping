@@ -3,8 +3,12 @@ import { scrollList } from "../../api";
 import { useState } from "react";
 import { Box, Image, Text } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { TopBtn } from "../../components/TopBtn";
+import { useScrollTop } from "../../lib/useScrollTop";
 
 export const Pet = () => {
+  useScrollTop();
+
   const [scrollData, setScrollData] = useState();
   const [resultData, setResultData] = useState();
 
@@ -119,6 +123,7 @@ export const Pet = () => {
           </Box>
         </InfiniteScroll>
       )}
+      <TopBtn />
     </Box>
   );
 };
