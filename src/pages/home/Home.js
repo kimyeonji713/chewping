@@ -8,6 +8,10 @@ import { Search2Icon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { routes } from "../../routes";
 import "swiper/css";
+import { PiDog, PiDogBold, PiDogFill } from "react-icons/pi";
+import { FaCar, FaCaravan, FaMap } from "react-icons/fa";
+import { GiBarracksTent, GiCampingTent } from "react-icons/gi";
+import { SiDatadog } from "react-icons/si";
 
 export const Home = () => {
   // useScrollTop();
@@ -77,6 +81,7 @@ export const Home = () => {
   return (
     <Box maxW={500} w="100%" mx="auto">
       <Swiper
+        className="main_banner"
         modules={[Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
@@ -103,9 +108,10 @@ export const Home = () => {
       {/* 메인베너 */}
 
       <Button
+        className="search"
         w="480px"
         h="50px"
-        margin="20px 10px"
+        margin="30px 10px"
         bgColor="#75A47F"
         borderRadius="25px"
         colorScheme="#fff"
@@ -120,56 +126,141 @@ export const Home = () => {
         </Link>
       </Button>
 
-      {/* 검색버튼 */}
       <Box
+        className="section_2"
         w={"100%"}
-        display={"grid"}
-        gridTemplateColumns={"repeat(2, 1fr)"}
-        rowGap={"20px"}
-        columnGap={"20px"}
-        padding={"10px"}
+        h={"100px"}
+        display={"flex"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        padding={"20px"}
+        margin={"0px 0 50px 0"}
       >
-        {recomData?.map((data) => (
-          <Button
-            key={data.contentId}
-            w={"240px"}
-            h={"250px"}
-            bgColor={"#fff"}
-            overflow={"hidden"}
+        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} position={"relative"}>
+          <GiCampingTent color="#423F3E" fontSize={"30px"} />
+          <Text
+            position={"absolute"}
+            bottom={"-25px"}
+            left={"-5px"}
+            textAlign={"center"}
+            fontSize={"15px"}
+            color={"#423F3E"}
           >
-            <Box w={"240px"} h={"250px"}>
-              <Link to={`/detail/${data.contentId}`}>
-                <Box w={"100%"} h={"150px"}>
-                  <Image
-                    w={"100%"}
-                    h={"100%"}
-                    objectFit={"cover"}
-                    borderRadius={"20px"}
-                    src={data.firstImageUrl}
-                    alt={data.facltNm}
-                  />
+            일반 야영장
+          </Text>
+        </Button>
+        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"}>
+          <GiBarracksTent color="#423F3E" fontSize={"30px"} />
+          <Text
+            position={"absolute"}
+            bottom={"-25px"}
+            left={"12px"}
+            textAlign={"center"}
+            fontSize={"15px"}
+            color={"#423F3E"}
+          >
+            글램핑
+          </Text>
+        </Button>
+        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"}>
+          <FaCaravan color="#423F3E" fontSize={"30px"} />
+          <Text
+            position={"absolute"}
+            bottom={"-25px"}
+            left={"12px"}
+            textAlign={"center"}
+            fontSize={"15px"}
+            color={"#423F3E"}
+          >
+            카라반
+          </Text>
+        </Button>
+        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"}>
+          <FaCar color="#423F3E" fontSize={"30px"} />
+          <Text
+            position={"absolute"}
+            bottom={"-25px"}
+            left={"-15px"}
+            textAlign={"center"}
+            fontSize={"15px"}
+            color={"#423F3E"}
+          >
+            자동차 야영장
+          </Text>
+        </Button>
+        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"}>
+          <SiDatadog color="#423F3E" fontSize={"30px"} />
+          <Text
+            position={"absolute"}
+            bottom={"-25px"}
+            left={"-10px"}
+            textAlign={"center"}
+            fontSize={"15px"}
+            color={"#423F3E"}
+          >
+            반려동물 동반
+          </Text>
+        </Button>
+      </Box>
 
-                  <Text
-                    color={"#000"}
-                    fontSize={"18px"}
-                    marginTop={"10px"}
-                    textAlign={"left"}
-                  >
-                    {data.facltNm}
-                  </Text>
-                  <Text
-                    color={"gray.600"}
-                    marginTop={"5px"}
-                    fontSize={"15px"}
-                    textAlign={"left"}
-                  >
-                    {data.addr1}
-                  </Text>
-                </Box>
-              </Link>
-            </Box>
-          </Button>
-        ))}
+      <Box className="section_2">
+        <Text
+          marginLeft={"10px"}
+          marginBottom={"10px"}
+          fontSize={"22px"}
+          fontWeight={"900"}
+        >
+          추천 캠핑장
+        </Text>
+        <Box
+          w={"100%"}
+          display={"grid"}
+          gridTemplateColumns={"repeat(2, 1fr)"}
+          rowGap={"20px"}
+          columnGap={"20px"}
+        >
+          {recomData?.map((data) => (
+            <Button
+              key={data.contentId}
+              w={"240px"}
+              h={"250px"}
+              bgColor={"#fff"}
+              overflow={"hidden"}
+            >
+              <Box w={"240px"} h={"250px"}>
+                <Link to={`/detail/${data.contentId}`}>
+                  <Box w={"100%"} h={"150px"}>
+                    <Image
+                      w={"100%"}
+                      h={"100%"}
+                      objectFit={"cover"}
+                      borderRadius={"20px"}
+                      src={data.firstImageUrl}
+                      alt={data.facltNm}
+                    />
+
+                    <Text
+                      color={"#000"}
+                      fontSize={"18px"}
+                      marginTop={"10px"}
+                      textAlign={"left"}
+                    >
+                      {data.facltNm}
+                    </Text>
+                    <Text
+                      color={"gray.600"}
+                      marginTop={"8px"}
+                      fontSize={"15px"}
+                      textAlign={"left"}
+                    >
+                      {data.addr1}
+                    </Text>
+                  </Box>
+                </Link>
+              </Box>
+            </Button>
+          ))}
+        </Box>
       </Box>
     </Box>
   );
