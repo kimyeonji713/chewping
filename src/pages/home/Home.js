@@ -79,7 +79,12 @@ export const Home = () => {
   ];
 
   return (
-    <Box maxW={500} w="100%" mx="auto">
+    <Box
+      maxW={500}
+      w="100%"
+      mx="auto"
+      boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
+    >
       <Swiper
         className="main_banner"
         modules={[Autoplay]}
@@ -143,73 +148,83 @@ export const Home = () => {
           position={"relative"}
           colorScheme="pink"
         >
-          <GiCampingTent color="#423F3E" fontSize={"30px"} />
-          <Text
-            position={"absolute"}
-            bottom={"-25px"}
-            left={"-3px"}
-            textAlign={"center"}
-            fontSize={"14px"}
-            color={"#423F3E"}
-          >
-            일반 야영장
-          </Text>
+          <Link to={routes.normal}>
+            <GiCampingTent color="#423F3E" fontSize={"30px"} />
+            <Text
+              position={"absolute"}
+              bottom={"-25px"}
+              left={"-3px"}
+              textAlign={"center"}
+              fontSize={"14px"}
+              color={"#423F3E"}
+            >
+              일반 야영장
+            </Text>
+          </Link>
         </Button>
         <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
-          <GiBarracksTent color="#423F3E" fontSize={"30px"} />
-          <Text
-            position={"absolute"}
-            bottom={"-25px"}
-            left={"14px"}
-            textAlign={"center"}
-            fontSize={"14px"}
-            color={"#423F3E"}
-          >
-            글램핑
-          </Text>
+          <Link to={routes.gram}>
+            <GiBarracksTent color="#423F3E" fontSize={"30px"} />
+            <Text
+              position={"absolute"}
+              bottom={"-25px"}
+              left={"14px"}
+              textAlign={"center"}
+              fontSize={"14px"}
+              color={"#423F3E"}
+            >
+              글램핑
+            </Text>
+          </Link>
         </Button>
         <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
-          <FaCaravan color="#423F3E" fontSize={"30px"} />
-          <Text
-            position={"absolute"}
-            bottom={"-25px"}
-            left={"14px"}
-            textAlign={"center"}
-            fontSize={"14px"}
-            color={"#423F3E"}
-          >
-            카라반
-          </Text>
+          <Link to={routes.caravan}>
+            <FaCaravan color="#423F3E" fontSize={"30px"} />
+            <Text
+              position={"absolute"}
+              bottom={"-25px"}
+              left={"14px"}
+              textAlign={"center"}
+              fontSize={"14px"}
+              color={"#423F3E"}
+            >
+              카라반
+            </Text>
+          </Link>
         </Button>
         <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
-          <FaCar color="#423F3E" fontSize={"30px"} />
-          <Text
-            position={"absolute"}
-            bottom={"-25px"}
-            left={"-12px"}
-            textAlign={"center"}
-            fontSize={"14px"}
-            color={"#423F3E"}
-          >
-            자동차 야영장
-          </Text>
+          <Link to={routes.car}>
+            <FaCar color="#423F3E" fontSize={"30px"} />
+            <Text
+              position={"absolute"}
+              bottom={"-25px"}
+              left={"-12px"}
+              textAlign={"center"}
+              fontSize={"14px"}
+              color={"#423F3E"}
+            >
+              자동차 야영장
+            </Text>
+          </Link>
         </Button>
         <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
-          <SiDatadog color="#423F3E" fontSize={"30px"} />
-          <Text
-            position={"absolute"}
-            bottom={"-25px"}
-            left={"-8px"}
-            textAlign={"center"}
-            fontSize={"14px"}
-            color={"#423F3E"}
-          >
-            반려동물 동반
-          </Text>
+          <Link to={routes.pet}>
+            <SiDatadog color="#423F3E" fontSize={"30px"} />
+            <Text
+              position={"absolute"}
+              bottom={"-25px"}
+              left={"-8px"}
+              textAlign={"center"}
+              fontSize={"14px"}
+              color={"#423F3E"}
+            >
+              반려동물 동반
+            </Text>
+          </Link>
         </Button>
       </Box>
 
-      <Box className="section_2">
+      <Box className="section_2" maxW={"500px"} w={"100%"} padding={"10px"}>
         <Text
           marginLeft={"10px"}
           marginBottom={"10px"}
@@ -219,23 +234,22 @@ export const Home = () => {
           추천 캠핑장
         </Text>
         <Box
-          w={"100%"}
           display={"grid"}
           gridTemplateColumns={"repeat(2, 1fr)"}
           rowGap={"20px"}
-          columnGap={"20px"}
+          columnGap={"10px"}
         >
           {recomData?.map((data) => (
             <Button
               key={data.contentId}
               w={"240px"}
-              h={"250px"}
+              h={"260px"}
               bgColor={"#fff"}
               overflow={"hidden"}
             >
-              <Box w={"240px"} h={"250px"}>
+              <Box w={"240px"} h={"260px"}>
                 <Link to={`/detail/${data.contentId}`}>
-                  <Box w={"100%"} h={"150px"}>
+                  <Box w={"100%"} h={"200px"}>
                     <Image
                       w={"100%"}
                       h={"100%"}
@@ -247,7 +261,7 @@ export const Home = () => {
 
                     <Text
                       color={"#000"}
-                      fontSize={"18px"}
+                      fontSize={"16px"}
                       marginTop={"10px"}
                       textAlign={"left"}
                     >
@@ -256,7 +270,7 @@ export const Home = () => {
                     <Text
                       color={"gray.600"}
                       marginTop={"8px"}
-                      fontSize={"15px"}
+                      fontSize={"14px"}
                       textAlign={"left"}
                     >
                       {data.addr1}

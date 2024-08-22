@@ -4,4 +4,9 @@ export const routes = {
   search: "/search",
   login: "/login",
   signup: "/signup",
+  normal: "/normal",
+  gram: "/gram",
+  caravan: "/caravan",
+  car: "/car",
+  pet: "/pet",
 };
