@@ -13,7 +13,7 @@ export const TopBtn = () => {
       onClick={topHandler}
       position={"fixed"}
       bottom={"20px"}
-      right={"30%"}
+      right={"38%"}
       bgColor={"#BACD92"}
       colorScheme="green"
       w={"50px"}
