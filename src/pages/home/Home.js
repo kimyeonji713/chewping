@@ -136,66 +136,72 @@ export const Home = () => {
         padding={"20px"}
         margin={"0px 0 50px 0"}
       >
-        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} position={"relative"}>
+        <Button
+          w={"70px"}
+          h={"70px"}
+          bgColor={"#F5DAD2"}
+          position={"relative"}
+          colorScheme="pink"
+        >
           <GiCampingTent color="#423F3E" fontSize={"30px"} />
           <Text
             position={"absolute"}
             bottom={"-25px"}
-            left={"-5px"}
+            left={"-3px"}
             textAlign={"center"}
-            fontSize={"15px"}
+            fontSize={"14px"}
             color={"#423F3E"}
           >
             일반 야영장
           </Text>
         </Button>
-        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"}>
+        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
           <GiBarracksTent color="#423F3E" fontSize={"30px"} />
           <Text
             position={"absolute"}
             bottom={"-25px"}
-            left={"12px"}
+            left={"14px"}
             textAlign={"center"}
-            fontSize={"15px"}
+            fontSize={"14px"}
             color={"#423F3E"}
           >
             글램핑
           </Text>
         </Button>
-        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"}>
+        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
           <FaCaravan color="#423F3E" fontSize={"30px"} />
           <Text
             position={"absolute"}
             bottom={"-25px"}
-            left={"12px"}
+            left={"14px"}
             textAlign={"center"}
-            fontSize={"15px"}
+            fontSize={"14px"}
             color={"#423F3E"}
           >
             카라반
           </Text>
         </Button>
-        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"}>
+        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
           <FaCar color="#423F3E" fontSize={"30px"} />
           <Text
             position={"absolute"}
             bottom={"-25px"}
-            left={"-15px"}
+            left={"-12px"}
             textAlign={"center"}
-            fontSize={"15px"}
+            fontSize={"14px"}
             color={"#423F3E"}
           >
             자동차 야영장
           </Text>
         </Button>
-        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"}>
+        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
           <SiDatadog color="#423F3E" fontSize={"30px"} />
           <Text
             position={"absolute"}
             bottom={"-25px"}
-            left={"-10px"}
+            left={"-8px"}
             textAlign={"center"}
-            fontSize={"15px"}
+            fontSize={"14px"}
             color={"#423F3E"}
           >
             반려동물 동반
