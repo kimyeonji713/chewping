@@ -62,11 +62,19 @@ export const Gram = () => {
     }
   };
 
+  // const default_img =
+  //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvtLcEbK72DdI2-0yjNOHLvzQeJqLRKhirxA&s";
+  // const handleImage = (e) => {
+  //   e.target.src = default_img;
+  //   console.log(e.target.src);
+  // };
+
   return (
     <Box
       maxW={"500px"}
       w={"100%"}
       mx={"auto"}
+      minH={"100vh"}
       bgColor={"#f1f1f1"}
       boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
     >

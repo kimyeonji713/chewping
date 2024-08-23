@@ -296,11 +296,11 @@ export const Home = () => {
         <Box
           display={"grid"}
           gridTemplateColumns={"repeat(2, 1fr)"}
-          rowGap={"20px"}
+          rowGap={"35px"}
           columnGap={"10px"}
         >
           {recomData?.map((data) => (
-            <Button
+            <Box
               key={data.contentId}
               w={"240px"}
               h={"260px"}
@@ -311,8 +311,8 @@ export const Home = () => {
                 <Link to={`/detail/${data.contentId}`}>
                   <Box w={"100%"} h={"200px"}>
                     <Image
-                      w={"100%"}
-                      h={"100%"}
+                      w={"95%"}
+                      h={"95%"}
                       objectFit={"cover"}
                       borderRadius={"20px"}
                       src={data.firstImageUrl}
@@ -322,6 +322,7 @@ export const Home = () => {
                     <Text
                       color={"#000"}
                       fontSize={"16px"}
+                      fontWeight={"500"}
                       marginTop={"10px"}
                       textAlign={"left"}
                     >
@@ -329,7 +330,7 @@ export const Home = () => {
                     </Text>
                     <Text
                       color={"gray.600"}
-                      marginTop={"8px"}
+                      fontWeight={"300"}
                       fontSize={"14px"}
                       textAlign={"left"}
                     >
@@ -338,7 +339,7 @@ export const Home = () => {
                   </Box>
                 </Link>
               </Box>
-            </Button>
+            </Box>
           ))}
         </Box>
       </Box>
