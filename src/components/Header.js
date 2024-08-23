@@ -1,8 +1,8 @@
 import { Box, Button, Heading } from "@chakra-ui/react";
-import { LuTreePine } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import { FaSun } from "react-icons/fa";
+import { GiCampfire } from "react-icons/gi";
 
 export const Header = () => {
   return (
@@ -25,13 +25,13 @@ export const Header = () => {
           alignItems={"center"}
           padding={"10px"}
         >
-          <LuTreePine fontSize={"25px"} fontWeight={"900"} color={"#75A47F"} />
+          <GiCampfire fontSize={"25px"} fontWeight={"900"} color={"#178254"} />
           <Heading
             fontSize={"25px"}
             fontWeight={"900"}
             fontFamily={`"Dongle", sans-serif`}
             letterSpacing={"2px"}
-            color={"#75A47F"}
+            color={"#178254"}
           >
             츄핑
           </Heading>

@@ -7,11 +7,6 @@ const config = {
 
 const { Button, Modal, Alert } = chakraTheme.components;
 
-const fonts = {
-  heading: `"Dongle", sans-serif`,
-  body: `"Noto Sans KR", sans-serif`,
-};
-
 const components = {
   Button,
   Modal,
@@ -21,7 +16,10 @@ const components = {
 const _theme = extendBaseTheme({
   components,
   config,
-  fonts,
+  fonts: {
+    heading: `"Dongle", sans-serif`,
+    body: `"Noto Sans KR", sans-serif`,
+  },
 });
 
 export default _theme;

@@ -117,7 +117,7 @@ export const Home = () => {
         w="480px"
         h="50px"
         margin="30px 10px"
-        bgColor="#75A47F"
+        bgColor="#178254"
         borderRadius="25px"
         colorScheme="#fff"
       >
@@ -131,98 +131,158 @@ export const Home = () => {
         </Link>
       </Button>
 
-      <Box
-        className="section_2"
-        w={"100%"}
-        h={"100px"}
-        display={"flex"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        padding={"20px"}
-        margin={"0px 0 50px 0"}
-      >
-        <Button
-          w={"70px"}
-          h={"70px"}
-          bgColor={"#F5DAD2"}
-          position={"relative"}
-          colorScheme="pink"
+      <Box w={"500px"} h={"100%"} overflow={"hidden"}>
+        <Box
+          className="section_1"
+          w={"120%"}
+          h={"100px"}
+          display={"flex"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          padding={"20px"}
+          margin={"20px 0 50px 0"}
         >
-          <Link to={routes.normal}>
-            <GiCampingTent color="#423F3E" fontSize={"30px"} />
-            <Text
-              position={"absolute"}
-              bottom={"-25px"}
-              left={"-3px"}
-              textAlign={"center"}
-              fontSize={"14px"}
-              color={"#423F3E"}
-            >
-              일반 야영장
-            </Text>
-          </Link>
-        </Button>
-        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
-          <Link to={routes.gram}>
-            <GiBarracksTent color="#423F3E" fontSize={"30px"} />
-            <Text
-              position={"absolute"}
-              bottom={"-25px"}
-              left={"14px"}
-              textAlign={"center"}
-              fontSize={"14px"}
-              color={"#423F3E"}
-            >
-              글램핑
-            </Text>
-          </Link>
-        </Button>
-        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
-          <Link to={routes.caravan}>
-            <FaCaravan color="#423F3E" fontSize={"30px"} />
-            <Text
-              position={"absolute"}
-              bottom={"-25px"}
-              left={"14px"}
-              textAlign={"center"}
-              fontSize={"14px"}
-              color={"#423F3E"}
-            >
-              카라반
-            </Text>
-          </Link>
-        </Button>
-        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
-          <Link to={routes.car}>
-            <FaCar color="#423F3E" fontSize={"30px"} />
-            <Text
-              position={"absolute"}
-              bottom={"-25px"}
-              left={"-12px"}
-              textAlign={"center"}
-              fontSize={"14px"}
-              color={"#423F3E"}
-            >
-              자동차 야영장
-            </Text>
-          </Link>
-        </Button>
-        <Button w={"70px"} h={"70px"} bgColor={"#F5DAD2"} colorScheme="pink">
-          <Link to={routes.pet}>
-            <SiDatadog color="#423F3E" fontSize={"30px"} />
-            <Text
-              position={"absolute"}
-              bottom={"-25px"}
-              left={"-8px"}
-              textAlign={"center"}
-              fontSize={"14px"}
-              color={"#423F3E"}
-            >
-              반려동물 동반
-            </Text>
-          </Link>
-        </Button>
+          <Swiper slidesPerView={"4.2"} spaceBetween={"15px"} loop={true}>
+            <SwiperSlide>
+              <Box w={"90px"} h={"90px"}>
+                <Link to={routes.normal}>
+                  <Box
+                    w={"90px"}
+                    h={"90px"}
+                    border={"1px solid #a5b9b0"}
+                    borderRadius={"50%"}
+                    padding={"21px 24px"}
+                    marginBottom={"5px"}
+                  >
+                    <GiCampingTent
+                      color="#178254"
+                      fontSize={"40px"}
+                      opacity={0.6}
+                    />
+                  </Box>
+                  <Text
+                    textAlign={"center"}
+                    fontSize={"14px"}
+                    fontWeight={"600"}
+                    color={"#423F3E"}
+                  >
+                    일반 야영장
+                  </Text>
+                </Link>
+              </Box>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Box w={"90px"} h={"90px"}>
+                <Link to={routes.gram}>
+                  <Box
+                    w={"90px"}
+                    h={"90px"}
+                    border={"1px solid #a5b9b0"}
+                    borderRadius={"50%"}
+                    padding={"21px 26px"}
+                    marginBottom={"5px"}
+                  >
+                    <GiBarracksTent
+                      color="#178254"
+                      fontSize={"36px"}
+                      opacity={0.6}
+                    />
+                  </Box>
+                  <Text
+                    textAlign={"center"}
+                    fontSize={"14px"}
+                    fontWeight={"600"}
+                    color={"#423F3E"}
+                  >
+                    글램핑
+                  </Text>
+                </Link>
+              </Box>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Box w={"90px"} h={"90px"}>
+                <Link to={routes.caravan}>
+                  <Box
+                    w={"90px"}
+                    h={"90px"}
+                    border={"1px solid #a5b9b0"}
+                    borderRadius={"50%"}
+                    padding={"28px"}
+                    marginBottom={"5px"}
+                  >
+                    <FaCaravan
+                      color="#178254"
+                      fontSize={"35px"}
+                      opacity={0.6}
+                    />
+                  </Box>
+                  <Text
+                    textAlign={"center"}
+                    fontSize={"14px"}
+                    fontWeight={"600"}
+                    color={"#423F3E"}
+                  >
+                    카라반
+                  </Text>
+                </Link>
+              </Box>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Box w={"90px"} h={"90px"}>
+                <Link to={routes.car}>
+                  <Box
+                    w={"90px"}
+                    h={"90px"}
+                    border={"1px solid #a5b9b0"}
+                    borderRadius={"50%"}
+                    padding={"26px 28px"}
+                    marginBottom={"5px"}
+                  >
+                    <FaCar color="#178254" fontSize={"34px"} opacity={0.6} />
+                  </Box>
+                  <Text
+                    textAlign={"center"}
+                    fontSize={"14px"}
+                    fontWeight={"600"}
+                    color={"#423F3E"}
+                  >
+                    자동차 야영장
+                  </Text>
+                </Link>
+              </Box>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Box w={"90px"} h={"120px"}>
+                <Link to={routes.pet}>
+                  <Box
+                    w={"90px"}
+                    h={"90px"}
+                    border={"1px solid #a5b9b0"}
+                    borderRadius={"50%"}
+                    padding={"26px 28px"}
+                    marginBottom={"5px"}
+                  >
+                    <SiDatadog
+                      color="#178254"
+                      fontSize={"34px"}
+                      opacity={0.6}
+                    />
+                  </Box>
+                  <Text
+                    textAlign={"center"}
+                    fontSize={"14px"}
+                    fontWeight={"600"}
+                    color={"#423F3E"}
+                  >
+                    반려동물 동반
+                  </Text>
+                </Link>
+              </Box>
+            </SwiperSlide>
+          </Swiper>
+        </Box>
       </Box>
+      {/* section_1 */}
 
       <Box className="section_2" maxW={"500px"} w={"100%"} padding={"10px"}>
         <Text

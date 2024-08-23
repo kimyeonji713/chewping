@@ -5,6 +5,7 @@ import { Box, Image, Text } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { TopBtn } from "../../components/TopBtn";
 import { useScrollTop } from "../../lib/useScrollTop";
+import { Link } from "react-router-dom";
 
 export const Caravan = () => {
   useScrollTop();
@@ -98,26 +99,43 @@ export const Caravan = () => {
                 bgColor={"#fff"}
                 overflow={"hidden"}
               >
-                <Image
-                  src={data?.firstImageUrl}
-                  w={"40%"}
-                  display={"block"}
-                  borderRadius={"20px"}
-                />
-
-                <Box padding={"15px"}>
-                  <Text fontSize={"16px"} fontWeight={"700"} color={"#423F3E"}>
-                    {data?.facltNm}
-                  </Text>
-                  <Text
-                    marginTop={"15px"}
-                    fontSize={"14px"}
-                    color={"#423F3E"}
-                    opacity={"0.8"}
+                <Link to={`/detail/${data.contentId}`}>
+                  <Box
+                    w={"100%"}
+                    h={"180px"}
+                    marginBottom={"20px"}
+                    display={"flex"}
+                    borderRadius={"20px"}
+                    bgColor={"#fff"}
+                    overflow={"hidden"}
+                    cursor={"pointer"}
                   >
-                    {data.featureNm.slice(0, 100) + "..."}
-                  </Text>
-                </Box>
+                    <Image
+                      src={data?.firstImageUrl}
+                      w={"40%"}
+                      display={"block"}
+                      borderRadius={"20px"}
+                    />
+
+                    <Box padding={"15px"}>
+                      <Text
+                        fontSize={"16px"}
+                        fontWeight={"700"}
+                        color={"#423F3E"}
+                      >
+                        {data?.facltNm}
+                      </Text>
+                      <Text
+                        marginTop={"15px"}
+                        fontSize={"14px"}
+                        color={"#423F3E"}
+                        opacity={"0.8"}
+                      >
+                        {data.featureNm.slice(0, 100) + "..."}
+                      </Text>
+                    </Box>
+                  </Box>
+                </Link>
               </Box>
             ))}
           </Box>
