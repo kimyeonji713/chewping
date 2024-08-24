@@ -27,7 +27,7 @@ export const Detail = () => {
     })();
   }, []);
 
-  console.log(baseData);
+  // console.log(baseData);
 
   // const {
   //   state: { id },
