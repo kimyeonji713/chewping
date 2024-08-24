@@ -37,7 +37,7 @@ export const Home = () => {
     })();
   }, []);
 
-  console.log(recomData);
+  // console.log(recomData);
 
   const campaign = [
     {
@@ -84,6 +84,7 @@ export const Home = () => {
       w="100%"
       mx="auto"
       boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
+      padding={"70px 0 "}
     >
       <Swiper
         className="main_banner"

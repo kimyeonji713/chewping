@@ -11,10 +11,14 @@ export const Header = () => {
       w={"100%"}
       h={"70px"}
       mx="auto"
-      boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
       display={"flex"}
       justifyContent={"space-between"}
       alignItems={"center"}
+      bgColor={"#fff"}
+      position={"fixed"}
+      top={"0"}
+      left={"36.9%"}
+      zIndex={"10"}
     >
       <Link to={routes.home}>
         <Box

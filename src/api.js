@@ -30,3 +30,6 @@ export const scrollList = (pageNum) => {
     `basedList?serviceKey=${serviceKey}&numOfRows=30&pageNo=${pageNum}&MobileOS=WIN&MobileApp=none&_type=json`;
   return fetch(scrollUrl).then((res) => res.json());
 };
+
+// export const detailList = (id) =>
+//   fetch(url("basedList") + `&contentId=${id}`).then((res) => res.json());
