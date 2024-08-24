@@ -6,6 +6,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { TopBtn } from "../../components/TopBtn";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { Link } from "react-router-dom";
+import { routes } from "../../routes";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export const Caravan = () => {
   useScrollTop();
@@ -77,17 +79,37 @@ export const Caravan = () => {
           hasMore={true}
         >
           <Box w={"100%"} padding={"10px"}>
-            <Text
-              marginLeft={"10px"}
-              color={"#423F3E"}
-              marginTop={"20px"}
-              marginBottom={"20px"}
-              fontSize={"20px"}
-              fontWeight={"700"}
-              opacity={"0.7"}
+            <Box
+              w={"100%"}
+              h={"50px"}
+              display={"flex"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+              margin={"0 0 10px 0"}
+              padding={"5px"}
             >
-              카라반
-            </Text>
+              <Link to={routes.gram}>
+                <Box color={"#423F3E"} opacity={"0.7"} cursor={"pointer"}>
+                  <FaChevronLeft />
+                </Box>
+              </Link>
+              <Text
+                marginLeft={"10px"}
+                color={"#423F3E"}
+                marginTop={"20px"}
+                marginBottom={"20px"}
+                fontSize={"20px"}
+                fontWeight={"700"}
+                opacity={"0.7"}
+              >
+                카라반
+              </Text>
+              <Link to={routes.car}>
+                <Box color={"#423F3E"} opacity={"0.7"} cursor={"pointer"}>
+                  <FaChevronRight />
+                </Box>
+              </Link>
+            </Box>
             {base?.map((data) => (
               <Box
                 key={data.contentId}

@@ -6,6 +6,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { TopBtn } from "../../components/TopBtn";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { Link } from "react-router-dom";
+import { routes } from "../../routes";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export const Gram = () => {
   useScrollTop();
@@ -74,7 +76,7 @@ export const Gram = () => {
       maxW={"500px"}
       w={"100%"}
       mx={"auto"}
-      minH={"100vh"}
+      minH={"120vh"}
       bgColor={"#f1f1f1"}
       boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
     >
@@ -85,17 +87,36 @@ export const Gram = () => {
           hasMore={true}
         >
           <Box w={"100%"} padding={"10px"}>
-            <Text
-              marginLeft={"10px"}
-              color={"#423F3E"}
-              marginTop={"20px"}
-              marginBottom={"20px"}
-              fontSize={"20px"}
-              fontWeight={"700"}
-              opacity={"0.7"}
+            <Box
+              w={"100%"}
+              h={"50px"}
+              display={"flex"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+              margin={"0 0 10px 0"}
+              padding={"5px"}
             >
-              글램핑
-            </Text>
+              <Link to={routes.normal}>
+                <Box color={"#423F3E"} opacity={"0.7"} cursor={"pointer"}>
+                  <FaChevronLeft />
+                </Box>
+              </Link>
+              <Text
+                color={"#423F3E"}
+                marginTop={"20px"}
+                marginBottom={"20px"}
+                fontSize={"20px"}
+                fontWeight={"700"}
+                opacity={"0.7"}
+              >
+                글램핑
+              </Text>
+              <Link to={routes.caravan}>
+                <Box color={"#423F3E"} opacity={"0.7"} cursor={"pointer"}>
+                  <FaChevronRight />
+                </Box>
+              </Link>
+            </Box>
             {base?.map((data) => (
               <Box
                 key={data.contentId}

@@ -6,6 +6,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { TopBtn } from "../../components/TopBtn";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { Link } from "react-router-dom";
+import { FaChevronLeft } from "react-icons/fa";
+import { routes } from "../../routes";
 
 export const Pet = () => {
   useScrollTop();
@@ -77,17 +79,39 @@ export const Pet = () => {
           hasMore={true}
         >
           <Box w={"100%"} padding={"10px"}>
-            <Text
-              marginLeft={"10px"}
-              color={"#423F3E"}
-              marginTop={"20px"}
-              marginBottom={"20px"}
-              fontSize={"20px"}
-              fontWeight={"700"}
-              opacity={"0.7"}
+            <Box
+              w={"100%"}
+              h={"50px"}
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              margin={"0 0 10px 0"}
+              position={"relative"}
             >
-              반려동물 동반
-            </Text>
+              <Link to={routes.car}>
+                <Box
+                  position={"absolute"}
+                  top={"17px"}
+                  left={"5px"}
+                  color={"#423F3E"}
+                  opacity={"0.7"}
+                  cursor={"pointer"}
+                >
+                  <FaChevronLeft />
+                </Box>
+              </Link>
+              <Text
+                marginLeft={"10px"}
+                color={"#423F3E"}
+                marginTop={"20px"}
+                marginBottom={"20px"}
+                fontSize={"20px"}
+                fontWeight={"700"}
+                opacity={"0.7"}
+              >
+                반려동물 동반
+              </Text>
+            </Box>
             {base?.map((data) => (
               <Box key={data.contentId}>
                 <Box>

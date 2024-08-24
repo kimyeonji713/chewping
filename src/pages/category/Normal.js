@@ -6,6 +6,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { TopBtn } from "../../components/TopBtn";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { Link } from "react-router-dom";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { routes } from "../../routes";
 
 export const Normal = () => {
   useScrollTop();
@@ -80,17 +82,38 @@ export const Normal = () => {
           hasMore={true}
         >
           <Box w={"100%"} padding={"10px"}>
-            <Text
-              marginLeft={"10px"}
-              color={"#423F3E"}
-              marginTop={"20px"}
-              marginBottom={"20px"}
-              fontSize={"20px"}
-              fontWeight={"700"}
-              opacity={"0.7"}
+            <Box
+              w={"100%"}
+              h={"50px"}
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              margin={"0 0 10px 0"}
+              position={"relative"}
             >
-              일반 야영장
-            </Text>
+              <Text
+                color={"#423F3E"}
+                marginTop={"20px"}
+                marginBottom={"20px"}
+                fontSize={"20px"}
+                fontWeight={"700"}
+                opacity={"0.7"}
+              >
+                일반 야영장
+              </Text>
+              <Link to={routes.gram}>
+                <Box
+                  position={"absolute"}
+                  top={"17px"}
+                  right={"5px"}
+                  color={"#423F3E"}
+                  opacity={"0.7"}
+                  cursor={"pointer"}
+                >
+                  <FaChevronRight />
+                </Box>
+              </Link>
+            </Box>
             {normalBase?.map((data) => (
               <Box
                 key={data.contentId}
