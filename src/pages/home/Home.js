@@ -21,7 +21,7 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const pointColor = useColorModeValue("#178254", "#FFAD60");
   const pointColor_2 = useColorModeValue("#423F3E", "#fff");
-  const bg = useColorModeValue("#f9f9f9", "#293347");
+  const bg = useColorModeValue("#f9f9f9", "#011627");
   const boderStyle = useColorModeValue(
     "1px solid #a5b9b0",
     "1px solid #FFAD60"
@@ -94,7 +94,7 @@ export const Home = () => {
         <Loading />
       ) : (
         <>
-          <Box maxW={500} w="100%" mx="auto" bgColor={bg}>
+          <Box maxW={500} mx="auto" bgColor={bg}>
             <Swiper
               className="main_banner"
               modules={[Autoplay]}
@@ -108,7 +108,7 @@ export const Home = () => {
             >
               {campaign?.map((camData) => (
                 <SwiperSlide key={camData.id}>
-                  <Box maxW="500px" mx="auto" w="100%" h="500px">
+                  <Box maxW="500px" mx="auto" h="500px">
                     <Image
                       w="100%"
                       objectFit={"cover"}
@@ -124,7 +124,7 @@ export const Home = () => {
 
             <Button
               className="search"
-              w="480px"
+              w="95%"
               h="50px"
               margin="30px 10px"
               bgColor={pointColor}
@@ -144,7 +144,7 @@ export const Home = () => {
               </Link>
             </Button>
 
-            <Box w={"500px"} h={"100%"} overflow={"hidden"}>
+            <Box w={"100%"} h={"100%"} overflow={"hidden"}>
               <Box
                 className="section_1"
                 w={"120%"}
@@ -157,10 +157,10 @@ export const Home = () => {
               >
                 <Swiper slidesPerView={"4.2"} spaceBetween={"15px"} loop={true}>
                   <SwiperSlide>
-                    <Box w={"90px"} h={"90px"}>
+                    <Box maxW={"90px"} h={"90px"}>
                       <Link to={routes.normal}>
                         <Box
-                          w={"90px"}
+                          w={"100%"}
                           h={"90px"}
                           border={boderStyle}
                           borderRadius={"50%"}
@@ -186,10 +186,10 @@ export const Home = () => {
                     </Box>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <Box w={"90px"} h={"90px"}>
+                    <Box maxW={"90px"} h={"90px"}>
                       <Link to={routes.gram}>
                         <Box
-                          w={"90px"}
+                          w={"100%"}
                           h={"90px"}
                           border={boderStyle}
                           borderRadius={"50%"}
@@ -215,10 +215,10 @@ export const Home = () => {
                     </Box>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <Box w={"90px"} h={"90px"}>
+                    <Box maxW={"90px"} h={"90px"}>
                       <Link to={routes.caravan}>
                         <Box
-                          w={"90px"}
+                          w={"100%"}
                           h={"90px"}
                           border={boderStyle}
                           borderRadius={"50%"}
@@ -244,10 +244,10 @@ export const Home = () => {
                     </Box>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <Box w={"90px"} h={"90px"}>
+                    <Box maxW={"90px"} h={"90px"}>
                       <Link to={routes.car}>
                         <Box
-                          w={"90px"}
+                          w={"100%"}
                           h={"90px"}
                           border={boderStyle}
                           borderRadius={"50%"}
@@ -273,10 +273,10 @@ export const Home = () => {
                     </Box>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <Box w={"90px"} h={"120px"}>
+                    <Box maxW={"90px"} h={"120px"}>
                       <Link to={routes.pet}>
                         <Box
-                          w={"90px"}
+                          w={"100%"}
                           h={"90px"}
                           border={boderStyle}
                           borderRadius={"50%"}
@@ -306,12 +306,7 @@ export const Home = () => {
             </Box>
             {/* section_1 */}
 
-            <Box
-              className="section_2"
-              maxW={"500px"}
-              w={"100%"}
-              padding={"10px"}
-            >
+            <Box className="section_2" maxW={"500px"} padding={"10px"}>
               <Text
                 marginLeft={"10px"}
                 marginBottom={"10px"}
@@ -321,19 +316,15 @@ export const Home = () => {
                 추천 캠핑장
               </Text>
               <Box
+                w={"100%"}
                 display={"grid"}
                 gridTemplateColumns={"repeat(2, 1fr)"}
                 rowGap={"35px"}
                 columnGap={"10px"}
               >
                 {recomData?.map((data) => (
-                  <Box
-                    key={data.contentId}
-                    w={"240px"}
-                    h={"260px"}
-                    overflow={"hidden"}
-                  >
-                    <Box w={"240px"} h={"260px"}>
+                  <Box key={data.contentId} w={"100%"} h={"260px"}>
+                    <Box w={"100%"} h={"260px"}>
                       <Link to={`/detail/${data.contentId}`}>
                         <Box w={"100%"} h={"200px"}>
                           <Image

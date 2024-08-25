@@ -3,15 +3,17 @@ import { PulseLoader } from "react-spinners";
 
 export const Loading = () => {
   const point = useColorModeValue("#178254", "#FFAD60");
+  const bg = useColorModeValue("#f9f9f9", "#011627");
+
   return (
     <Box
       maxW={500}
-      w="100%"
       mx="auto"
       minH={"100vh"}
       display={"flex"}
       justifyContent={"center"}
       alignItems={"center"}
+      bgColor={bg}
     >
       <AbsoluteCenter p="1" axis="both">
         <PulseLoader color={point} />

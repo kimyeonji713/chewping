@@ -16,7 +16,7 @@ export const Header = () => {
   const { toggleColorMode } = useColorMode();
   const Icon = useColorModeValue(FaMoon, FaSun);
   const logoColor = useColorModeValue("#178254", "#FFAD60");
-  const bg = useColorModeValue("#f9f9f9", "#293347");
+  const bg = useColorModeValue("#f9f9f9", "#011627");
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const scrollHandler = () => {

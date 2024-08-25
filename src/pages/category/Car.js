@@ -21,12 +21,13 @@ export const Car = () => {
   const fontColor = useColorModeValue("#423F3E", "#fff");
 
   const subBg = useColorModeValue("fff", "#53668d");
-  const bg = useColorModeValue("#f9f9f9", "#293347");
+  const bg = useColorModeValue("#f9f9f9", "#011627");
   const boderStyle = useColorModeValue(
     "1px solid #a5b9b0",
     "1px solid #FFAD60"
   );
 
+  // "#293347"
   useEffect(() => {
     (async () => {
       try {

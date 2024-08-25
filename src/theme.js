@@ -16,8 +16,9 @@ const components = {
 const _theme = extendBaseTheme({
   components,
   config,
+
   fonts: {
-    heading: `"Dongle", sans-serif`,
+    heading: `"Do Hyeon", sans-serif`,
     body: `"Noto Sans KR", sans-serif`,
   },
 });
