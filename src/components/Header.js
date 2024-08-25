@@ -1,10 +1,19 @@
-import { Box, Button, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Heading,
+  IconButton,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
-import { FaSun } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { GiCampfire } from "react-icons/gi";
 
 export const Header = () => {
+  const { toggleColorMode } = useColorMode();
+  const Icon = useColorModeValue(FaMoon, FaSun);
   return (
     <Box
       maxW="500px"
@@ -42,9 +51,15 @@ export const Header = () => {
         </Box>
       </Link>
 
-      <Button bgColor={"#fff"} color={"#FFAD60"} fontSize={"18px"}>
-        <FaSun />
-      </Button>
+      <IconButton
+        bgColor={"#fff"}
+        color={"#FFAD60"}
+        fontSize={"18px"}
+        onClick={toggleColorMode}
+        variant={"ghost"}
+        aria-label="Toggle dark mode"
+        icon={<Icon />}
+      ></IconButton>
     </Box>
   );
 };

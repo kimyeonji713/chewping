@@ -8,12 +8,14 @@ import { useScrollTop } from "../../lib/useScrollTop";
 import { Link } from "react-router-dom";
 import { FaChevronLeft } from "react-icons/fa";
 import { routes } from "../../routes";
+import { Loading } from "../../components/Loading";
 
 export const Pet = () => {
   useScrollTop();
 
   const [scrollData, setScrollData] = useState();
   const [resultData, setResultData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -33,6 +35,7 @@ export const Pet = () => {
         // console.log(item);
         setScrollData(item);
         setResultData(body);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -65,100 +68,106 @@ export const Pet = () => {
   };
 
   return (
-    <Box
-      maxW={"500px"}
-      w={"100%"}
-      mx={"auto"}
-      bgColor={"#f1f1f1"}
-      boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
-    >
-      {scrollData && (
-        <InfiniteScroll
-          dataLength={scrollData.length}
-          next={fetchData}
-          hasMore={true}
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Box
+          maxW={"500px"}
+          w={"100%"}
+          mx={"auto"}
+          bgColor={"#f1f1f1"}
+          boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
         >
-          <Box w={"100%"} padding={"10px"}>
-            <Box
-              w={"100%"}
-              h={"50px"}
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              margin={"0 0 10px 0"}
-              position={"relative"}
+          {scrollData && (
+            <InfiniteScroll
+              dataLength={scrollData.length}
+              next={fetchData}
+              hasMore={true}
             >
-              <Link to={routes.car}>
+              <Box w={"100%"} padding={"10px"}>
                 <Box
-                  position={"absolute"}
-                  top={"17px"}
-                  left={"5px"}
-                  color={"#423F3E"}
-                  opacity={"0.7"}
-                  cursor={"pointer"}
+                  w={"100%"}
+                  h={"50px"}
+                  display={"flex"}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  margin={"0 0 10px 0"}
+                  position={"relative"}
                 >
-                  <FaChevronLeft />
-                </Box>
-              </Link>
-              <Text
-                marginLeft={"10px"}
-                color={"#423F3E"}
-                marginTop={"20px"}
-                marginBottom={"20px"}
-                fontSize={"20px"}
-                fontWeight={"700"}
-                opacity={"0.7"}
-              >
-                반려동물 동반
-              </Text>
-            </Box>
-            {base?.map((data) => (
-              <Box key={data.contentId}>
-                <Box>
-                  <Link to={`/detail/${data.contentId}`}>
+                  <Link to={routes.car}>
                     <Box
-                      w={"100%"}
-                      h={"180px"}
-                      marginBottom={"20px"}
-                      display={"flex"}
-                      borderRadius={"20px"}
-                      bgColor={"#fff"}
-                      overflow={"hidden"}
+                      position={"absolute"}
+                      top={"17px"}
+                      left={"5px"}
+                      color={"#423F3E"}
+                      opacity={"0.7"}
                       cursor={"pointer"}
                     >
-                      <Image
-                        src={data?.firstImageUrl}
-                        w={"40%"}
-                        display={"block"}
-                        borderRadius={"20px"}
-                      />
-
-                      <Box padding={"15px"}>
-                        <Text
-                          fontSize={"16px"}
-                          fontWeight={"700"}
-                          color={"#423F3E"}
-                        >
-                          {data?.facltNm}
-                        </Text>
-                        <Text
-                          marginTop={"15px"}
-                          fontSize={"14px"}
-                          color={"#423F3E"}
-                          opacity={"0.8"}
-                        >
-                          {data.featureNm.slice(0, 100) + "..."}
-                        </Text>
-                      </Box>
+                      <FaChevronLeft />
                     </Box>
                   </Link>
+                  <Text
+                    marginLeft={"10px"}
+                    color={"#423F3E"}
+                    marginTop={"20px"}
+                    marginBottom={"20px"}
+                    fontSize={"20px"}
+                    fontWeight={"700"}
+                    opacity={"0.7"}
+                  >
+                    반려동물 동반
+                  </Text>
                 </Box>
+                {base?.map((data) => (
+                  <Box key={data.contentId}>
+                    <Box>
+                      <Link to={`/detail/${data.contentId}`}>
+                        <Box
+                          w={"100%"}
+                          h={"180px"}
+                          marginBottom={"20px"}
+                          display={"flex"}
+                          borderRadius={"20px"}
+                          bgColor={"#fff"}
+                          overflow={"hidden"}
+                          cursor={"pointer"}
+                        >
+                          <Image
+                            src={data?.firstImageUrl}
+                            w={"40%"}
+                            display={"block"}
+                            borderRadius={"20px"}
+                          />
+
+                          <Box padding={"15px"}>
+                            <Text
+                              fontSize={"16px"}
+                              fontWeight={"700"}
+                              color={"#423F3E"}
+                            >
+                              {data?.facltNm}
+                            </Text>
+                            <Text
+                              marginTop={"15px"}
+                              fontSize={"14px"}
+                              color={"#423F3E"}
+                              opacity={"0.8"}
+                            >
+                              {data.featureNm.slice(0, 100) + "..."}
+                            </Text>
+                          </Box>
+                        </Box>
+                      </Link>
+                    </Box>
+                  </Box>
+                ))}
               </Box>
-            ))}
-          </Box>
-        </InfiniteScroll>
+            </InfiniteScroll>
+          )}
+          <TopBtn />
+        </Box>
       )}
-      <TopBtn />
-    </Box>
+    </>
   );
 };
