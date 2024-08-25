@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { scrollList } from "../../api";
 import { useState } from "react";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { TopBtn } from "../../components/TopBtn";
 import { useScrollTop } from "../../lib/useScrollTop";
@@ -16,6 +16,9 @@ export const Pet = () => {
   const [scrollData, setScrollData] = useState();
   const [resultData, setResultData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const fontColor = useColorModeValue("#423F3E", "#fff");
+  const subBg = useColorModeValue("fff", "#53668d");
+  const bg = useColorModeValue("#f9f9f9", "#293347");
 
   useEffect(() => {
     (async () => {
@@ -72,13 +75,7 @@ export const Pet = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Box
-          maxW={"500px"}
-          w={"100%"}
-          mx={"auto"}
-          bgColor={"#f1f1f1"}
-          boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
-        >
+        <Box maxW={"500px"} w={"100%"} mx={"auto"} bgColor={bg}>
           {scrollData && (
             <InfiniteScroll
               dataLength={scrollData.length}
@@ -100,7 +97,7 @@ export const Pet = () => {
                       position={"absolute"}
                       top={"17px"}
                       left={"5px"}
-                      color={"#423F3E"}
+                      color={fontColor}
                       opacity={"0.7"}
                       cursor={"pointer"}
                     >
@@ -109,7 +106,7 @@ export const Pet = () => {
                   </Link>
                   <Text
                     marginLeft={"10px"}
-                    color={"#423F3E"}
+                    color={fontColor}
                     marginTop={"20px"}
                     marginBottom={"20px"}
                     fontSize={"20px"}
@@ -129,8 +126,7 @@ export const Pet = () => {
                           marginBottom={"20px"}
                           display={"flex"}
                           borderRadius={"20px"}
-                          bgColor={"#fff"}
-                          overflow={"hidden"}
+                          bgColor={subBg}
                           cursor={"pointer"}
                         >
                           <Image
@@ -144,14 +140,14 @@ export const Pet = () => {
                             <Text
                               fontSize={"16px"}
                               fontWeight={"700"}
-                              color={"#423F3E"}
+                              color={fontColor}
                             >
                               {data?.facltNm}
                             </Text>
                             <Text
                               marginTop={"15px"}
                               fontSize={"14px"}
-                              color={"#423F3E"}
+                              color={fontColor}
                               opacity={"0.8"}
                             >
                               {data.featureNm.slice(0, 100) + "..."}

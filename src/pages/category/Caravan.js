@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { scrollList } from "../../api";
 import { useState } from "react";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { TopBtn } from "../../components/TopBtn";
 import { useScrollTop } from "../../lib/useScrollTop";
@@ -16,6 +16,16 @@ export const Caravan = () => {
   const [scrollData, setScrollData] = useState();
   const [resultData, setResultData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const pointColor = useColorModeValue("#178254", "#FFAD60");
+  const pointColor_2 = useColorModeValue("#423F3E", "#93653a");
+  const fontColor = useColorModeValue("#423F3E", "#fff");
+
+  const subBg = useColorModeValue("fff", "#53668d");
+  const bg = useColorModeValue("#f9f9f9", "#293347");
+  const boderStyle = useColorModeValue(
+    "1px solid #a5b9b0",
+    "1px solid #FFAD60"
+  );
 
   useEffect(() => {
     (async () => {
@@ -72,13 +82,7 @@ export const Caravan = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Box
-          maxW={"500px"}
-          w={"100%"}
-          mx={"auto"}
-          bgColor={"#f1f1f1"}
-          boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
-        >
+        <Box maxW={"500px"} w={"100%"} mx={"auto"} bgColor={bg}>
           {scrollData && (
             <InfiniteScroll
               dataLength={scrollData.length}
@@ -96,13 +100,13 @@ export const Caravan = () => {
                   padding={"5px"}
                 >
                   <Link to={routes.gram}>
-                    <Box color={"#423F3E"} opacity={"0.7"} cursor={"pointer"}>
+                    <Box color={fontColor} opacity={"0.7"} cursor={"pointer"}>
                       <FaChevronLeft />
                     </Box>
                   </Link>
                   <Text
                     marginLeft={"10px"}
-                    color={"#423F3E"}
+                    color={fontColor}
                     marginTop={"20px"}
                     marginBottom={"20px"}
                     fontSize={"20px"}
@@ -112,7 +116,7 @@ export const Caravan = () => {
                     카라반
                   </Text>
                   <Link to={routes.car}>
-                    <Box color={"#423F3E"} opacity={"0.7"} cursor={"pointer"}>
+                    <Box color={fontColor} opacity={"0.7"} cursor={"pointer"}>
                       <FaChevronRight />
                     </Box>
                   </Link>
@@ -125,8 +129,7 @@ export const Caravan = () => {
                     marginBottom={"20px"}
                     display={"flex"}
                     borderRadius={"20px"}
-                    bgColor={"#fff"}
-                    overflow={"hidden"}
+                    bgColor={subBg}
                   >
                     <Link to={`/detail/${data.contentId}`}>
                       <Box
@@ -135,8 +138,7 @@ export const Caravan = () => {
                         marginBottom={"20px"}
                         display={"flex"}
                         borderRadius={"20px"}
-                        bgColor={"#fff"}
-                        overflow={"hidden"}
+                        bgColor={subBg}
                         cursor={"pointer"}
                       >
                         <Image
@@ -150,14 +152,14 @@ export const Caravan = () => {
                           <Text
                             fontSize={"16px"}
                             fontWeight={"700"}
-                            color={"#423F3E"}
+                            color={fontColor}
                           >
                             {data?.facltNm}
                           </Text>
                           <Text
                             marginTop={"15px"}
                             fontSize={"14px"}
-                            color={"#423F3E"}
+                            color={fontColor}
                             opacity={"0.8"}
                           >
                             {data.featureNm.slice(0, 100) + "..."}

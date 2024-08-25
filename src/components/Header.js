@@ -10,12 +10,27 @@ import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { GiCampfire } from "react-icons/gi";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
   const { toggleColorMode } = useColorMode();
   const Icon = useColorModeValue(FaMoon, FaSun);
+  const logoColor = useColorModeValue("#178254", "#FFAD60");
+  const bg = useColorModeValue("#f9f9f9", "#293347");
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const scrollHandler = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+
+    setScrollPosition(scrollPosition);
+  });
   return (
     <Box
+      onScroll={scrollHandler}
       maxW="500px"
       w={"100%"}
       h={"70px"}
@@ -23,10 +38,10 @@ export const Header = () => {
       display={"flex"}
       justifyContent={"space-between"}
       alignItems={"center"}
-      bgColor={"#fff"}
-      position={"fixed"}
+      bgColor={bg}
+      position={scrollPosition < 100 ? " relative" : "fixed"}
       top={"0"}
-      left={"36.9%"}
+      left={"0"}
       zIndex={"10"}
     >
       <Link to={routes.home}>
@@ -38,13 +53,13 @@ export const Header = () => {
           alignItems={"center"}
           padding={"10px"}
         >
-          <GiCampfire fontSize={"25px"} fontWeight={"900"} color={"#178254"} />
+          <GiCampfire fontSize={"25px"} fontWeight={"900"} color={logoColor} />
           <Heading
             fontSize={"25px"}
             fontWeight={"900"}
             fontFamily={`"Dongle", sans-serif`}
             letterSpacing={"2px"}
-            color={"#178254"}
+            color={logoColor}
           >
             츄핑
           </Heading>
@@ -52,8 +67,8 @@ export const Header = () => {
       </Link>
 
       <IconButton
-        bgColor={"#fff"}
-        color={"#FFAD60"}
+        bgColor={bg}
+        color={logoColor}
         fontSize={"18px"}
         onClick={toggleColorMode}
         variant={"ghost"}

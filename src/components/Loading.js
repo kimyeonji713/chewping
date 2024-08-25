@@ -1,7 +1,8 @@
-import { AbsoluteCenter, Box } from "@chakra-ui/react";
+import { AbsoluteCenter, Box, useColorModeValue } from "@chakra-ui/react";
 import { PulseLoader } from "react-spinners";
 
 export const Loading = () => {
+  const point = useColorModeValue("#178254", "#FFAD60");
   return (
     <Box
       maxW={500}
@@ -13,7 +14,7 @@ export const Loading = () => {
       alignItems={"center"}
     >
       <AbsoluteCenter p="1" axis="both">
-        <PulseLoader color="#178254" />
+        <PulseLoader color={point} />
       </AbsoluteCenter>
     </Box>
   );

@@ -1,4 +1,4 @@
-import { Box, Button, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { useEffect, useState } from "react";
 import { recomList } from "../../api";
@@ -19,6 +19,13 @@ export const Home = () => {
 
   const [recomData, setRecomData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const pointColor = useColorModeValue("#178254", "#FFAD60");
+  const pointColor_2 = useColorModeValue("#423F3E", "#fff");
+  const bg = useColorModeValue("#f9f9f9", "#293347");
+  const boderStyle = useColorModeValue(
+    "1px solid #a5b9b0",
+    "1px solid #FFAD60"
+  );
 
   useEffect(() => {
     (async () => {
@@ -87,14 +94,7 @@ export const Home = () => {
         <Loading />
       ) : (
         <>
-          {" "}
-          <Box
-            maxW={500}
-            w="100%"
-            mx="auto"
-            boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
-            padding={"70px 0 "}
-          >
+          <Box maxW={500} w="100%" mx="auto" bgColor={bg}>
             <Swiper
               className="main_banner"
               modules={[Autoplay]}
@@ -127,9 +127,8 @@ export const Home = () => {
               w="480px"
               h="50px"
               margin="30px 10px"
-              bgColor="#178254"
+              bgColor={pointColor}
               borderRadius="25px"
-              colorScheme="#fff"
             >
               <Link to={routes.search}>
                 <Box
@@ -163,13 +162,13 @@ export const Home = () => {
                         <Box
                           w={"90px"}
                           h={"90px"}
-                          border={"1px solid #a5b9b0"}
+                          border={boderStyle}
                           borderRadius={"50%"}
                           padding={"21px 24px"}
                           marginBottom={"5px"}
                         >
                           <GiCampingTent
-                            color="#178254"
+                            color={pointColor}
                             fontSize={"40px"}
                             opacity={0.6}
                           />
@@ -178,7 +177,8 @@ export const Home = () => {
                           textAlign={"center"}
                           fontSize={"14px"}
                           fontWeight={"600"}
-                          color={"#423F3E"}
+                          color={pointColor_2}
+                          opacity={"0.6"}
                         >
                           일반 야영장
                         </Text>
@@ -191,13 +191,13 @@ export const Home = () => {
                         <Box
                           w={"90px"}
                           h={"90px"}
-                          border={"1px solid #a5b9b0"}
+                          border={boderStyle}
                           borderRadius={"50%"}
                           padding={"21px 26px"}
                           marginBottom={"5px"}
                         >
                           <GiBarracksTent
-                            color="#178254"
+                            color={pointColor}
                             fontSize={"36px"}
                             opacity={0.6}
                           />
@@ -206,7 +206,8 @@ export const Home = () => {
                           textAlign={"center"}
                           fontSize={"14px"}
                           fontWeight={"600"}
-                          color={"#423F3E"}
+                          color={pointColor_2}
+                          opacity={"0.6"}
                         >
                           글램핑
                         </Text>
@@ -219,13 +220,13 @@ export const Home = () => {
                         <Box
                           w={"90px"}
                           h={"90px"}
-                          border={"1px solid #a5b9b0"}
+                          border={boderStyle}
                           borderRadius={"50%"}
                           padding={"28px"}
                           marginBottom={"5px"}
                         >
                           <FaCaravan
-                            color="#178254"
+                            color={pointColor}
                             fontSize={"35px"}
                             opacity={0.6}
                           />
@@ -234,7 +235,8 @@ export const Home = () => {
                           textAlign={"center"}
                           fontSize={"14px"}
                           fontWeight={"600"}
-                          color={"#423F3E"}
+                          color={pointColor_2}
+                          opacity={"0.6"}
                         >
                           카라반
                         </Text>
@@ -247,13 +249,13 @@ export const Home = () => {
                         <Box
                           w={"90px"}
                           h={"90px"}
-                          border={"1px solid #a5b9b0"}
+                          border={boderStyle}
                           borderRadius={"50%"}
                           padding={"26px 28px"}
                           marginBottom={"5px"}
                         >
                           <FaCar
-                            color="#178254"
+                            color={pointColor}
                             fontSize={"34px"}
                             opacity={0.6}
                           />
@@ -262,7 +264,8 @@ export const Home = () => {
                           textAlign={"center"}
                           fontSize={"14px"}
                           fontWeight={"600"}
-                          color={"#423F3E"}
+                          color={pointColor_2}
+                          opacity={"0.6"}
                         >
                           자동차 야영장
                         </Text>
@@ -275,13 +278,13 @@ export const Home = () => {
                         <Box
                           w={"90px"}
                           h={"90px"}
-                          border={"1px solid #a5b9b0"}
+                          border={boderStyle}
                           borderRadius={"50%"}
                           padding={"26px 28px"}
                           marginBottom={"5px"}
                         >
                           <SiDatadog
-                            color="#178254"
+                            color={pointColor}
                             fontSize={"34px"}
                             opacity={0.6}
                           />
@@ -290,7 +293,8 @@ export const Home = () => {
                           textAlign={"center"}
                           fontSize={"14px"}
                           fontWeight={"600"}
-                          color={"#423F3E"}
+                          color={pointColor_2}
+                          opacity={"0.6"}
                         >
                           반려동물 동반
                         </Text>
@@ -342,7 +346,6 @@ export const Home = () => {
                           />
 
                           <Text
-                            color={"#000"}
                             fontSize={"15px"}
                             fontWeight={"500"}
                             marginTop={"10px"}
@@ -351,7 +354,6 @@ export const Home = () => {
                             {data.facltNm}
                           </Text>
                           <Text
-                            color={"gray.600"}
                             fontWeight={"300"}
                             fontSize={"14px"}
                             letterSpacing={"-1px"}

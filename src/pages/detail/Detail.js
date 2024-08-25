@@ -1,4 +1,4 @@
-import { Box, Img, Text } from "@chakra-ui/react";
+import { Box, Img, Text, useColorModeValue } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { basedList } from "../../api";
 import { Link, useLocation } from "react-router-dom";
@@ -9,6 +9,11 @@ import { Loading } from "../../components/Loading";
 export const Detail = () => {
   const [baseData, setBaseData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const pointColor = useColorModeValue("#178254", "#FFAD60");
+  const pointColor_2 = useColorModeValue("#423F3E", "#fff");
+  const bg = useColorModeValue("#f9f9f9", "#293347");
+  const fontColor = useColorModeValue("#423F3E", "#fff");
+  const subBg = useColorModeValue("fff", "#53668d");
 
   useEffect(() => {
     (async () => {
@@ -53,14 +58,12 @@ export const Detail = () => {
           w={"100%"}
           mx={"auto"}
           minHeight={"1000px"}
-          bgColor={"#f1f1f1"}
-          boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
-          padding={"70px 0 0 0"}
+          bgColor={bg}
           position={"relative"}
         >
           {idData?.map((data) => (
             <Box key={data.contentId}>
-              <Box w={"100%"} h={"300px"}>
+              <Box w={"100%"} h={"350px"}>
                 <Img
                   w={"100%"}
                   h={"100%"}
@@ -70,8 +73,8 @@ export const Detail = () => {
               </Box>
               <Box
                 w={"100%"}
-                h={"660px"}
-                bgColor={"#fff"}
+                h={"670px"}
+                bgColor={bg}
                 borderRadius={"30px 30px 0 0 "}
                 position={"absolute"}
                 bottom={"0"}
@@ -179,14 +182,14 @@ export const Detail = () => {
                         w="480px"
                         h="50px"
                         margin="20px -7px 0 -7px"
-                        bgColor="#178254"
+                        bgColor={pointColor}
                         borderRadius="25px"
                         colorScheme="#fff"
                         display={"flex"}
                         justifyContent={"center"}
                         alignItems={"center"}
                       >
-                        <Text fontSize="md" fontWeight={"600"} color="#fff">
+                        <Text fontSize="md" fontWeight={"600"} color={"#fff"}>
                           예약하러가기
                         </Text>
                       </Box>

@@ -1,6 +1,9 @@
-import { Button } from "@chakra-ui/react";
+import { Button, useColorModeValue } from "@chakra-ui/react";
 
 export const TopBtn = () => {
+  const bg = useColorModeValue("#BACD92", "#FFAD60");
+  const scheme = useColorModeValue("green", "orange");
+
   const topHandler = () => {
     window.scrollTo({
       top: 0,
@@ -14,10 +17,11 @@ export const TopBtn = () => {
       position={"fixed"}
       bottom={"20px"}
       right={"5%"}
-      bgColor={"#BACD92"}
-      colorScheme="green"
+      bgColor={bg}
+      colorScheme={scheme}
       w={"50px"}
       h={"50px"}
+      zIndex={"10"}
     >
       TOP
     </Button>

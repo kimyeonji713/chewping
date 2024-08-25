@@ -1,4 +1,4 @@
-import { Box, Button, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Input, Text, useColorModeValue } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FiSearch } from "react-icons/fi";
@@ -13,6 +13,14 @@ export const Search = () => {
   const [srcollresultData, setScrollResultData] = useState();
   const [searchResult, setSearchResultData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  const pointColor = useColorModeValue("#178254", "#fff");
+  const pointColor_2 = useColorModeValue("#423F3E", "#93653a");
+  const bg = useColorModeValue("#f9f9f9", "#293347");
+  const boderStyle = useColorModeValue(
+    "1px solid #a5b9b0",
+    "1px solid #FFAD60"
+  );
 
   useEffect(() => {
     (async () => {
@@ -59,18 +67,12 @@ export const Search = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Box
-          maxW={"500px"}
-          w={"100%"}
-          minH={"100vh"}
-          mx={"auto"}
-          boxShadow={"rgb(232, 234, 246) 0px 0px 5px 5px;"}
-        >
+        <Box maxW={"500px"} w={"100%"} minH={"100vh"} mx={"auto"} bgColor={bg}>
           <Box w={"100%"} padding={"150px 40px 80px 40px"}>
-            <Text fontSize={"45px"} fontWeight={"400"} color={"#647b71"}>
+            <Text fontSize={"45px"} fontWeight={"400"} color={pointColor}>
               어디로
             </Text>
-            <Text fontSize={"45px"} fontWeight={"600"} color={"#647b71"}>
+            <Text fontSize={"45px"} fontWeight={"600"} color={pointColor}>
               떠나고 싶으신가요?
             </Text>
           </Box>
@@ -84,11 +86,12 @@ export const Search = () => {
           >
             <Input
               style={{
-                borderBottom: "1px solid #647b71",
+                all: "unset",
                 width: "100%",
+                borderBottom: { boderStyle },
                 marginLeft: "25px",
                 padding: "15px 0",
-                color: "#647b71",
+                color: { pointColor },
                 fontSize: "16px",
               }}
               {...register("keyword", {
@@ -96,8 +99,9 @@ export const Search = () => {
               })}
               type="text"
               placeholder="어디로 떠나고 싶으신가요?"
+              _placeholder={{ color: "inherit" }}
             />
-            <Button bgColor={"#fff"} color={"#647b71"} marginRight={"20px"}>
+            <Button bgColor={bg} color={pointColor} marginRight={"20px"}>
               <FiSearch />
             </Button>
           </form>
