@@ -6,7 +6,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { TopBtn } from "../../components/TopBtn";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { Link } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 import { routes } from "../../routes";
 import { Loading } from "../../components/Loading";
 
@@ -135,7 +135,10 @@ export const Normal = () => {
                     borderRadius={"20px"}
                     bgColor={subBg}
                   >
-                    <Link to={`/detail/${data.contentId}`}>
+                    <Link
+                      to={`/detail/${data.contentId}`}
+                      state={{ id: data.contentId }}
+                    >
                       <Box
                         w={"100%"}
                         h={"180px"}

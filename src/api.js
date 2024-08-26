@@ -31,8 +31,12 @@ export const scrollList = (pageNum) => {
   return fetch(scrollUrl).then((res) => res.json());
 };
 
-// export const detailList = (id) =>
-//   fetch(url("basedList") + `&contentId=${id}`).then((res) => res.json());
+export const detailList = () => {
+  const detailUrl =
+    baseUrl +
+    `basedList?serviceKey=${serviceKey}&numOfRows=999&pageNo=1&MobileOS=WIN&MobileApp=chewping&_type=json`;
+  return fetch(detailUrl).then((res) => res.json());
+};
 
 export const searchList = (keyword, pageNum) => {
   const searchUrl =

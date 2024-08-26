@@ -1,14 +1,14 @@
 import { Box, Img, Text, useColorModeValue } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { basedList } from "../../api";
+import { detailList } from "../../api";
 import { Link, useLocation } from "react-router-dom";
 import { BsTelephone } from "react-icons/bs";
-import { IoHomeOutline } from "react-icons/io5";
 import { Loading } from "../../components/Loading";
 
 export const Detail = () => {
-  const [baseData, setBaseData] = useState();
+  const [detailData, setDetailData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
   const pointColor = useColorModeValue("#178254", "#FFAD60");
   const pointColor_2 = useColorModeValue("#423F3E", "#fff");
   const bg = useColorModeValue("#f9f9f9", "#293347");
@@ -24,10 +24,10 @@ export const Detail = () => {
               items: { item },
             },
           },
-        } = await basedList();
+        } = await detailList();
 
         // console.log(item);
-        setBaseData(item);
+        setDetailData(item);
         setIsLoading(false);
       } catch (error) {
         console.log(error);
@@ -35,19 +35,20 @@ export const Detail = () => {
     })();
   }, []);
 
-  // console.log(baseData);
+  console.log(detailData);
 
   // const {
   //   state: { id },
   // } = useLocation();
 
-  // let location = useLocation();
-  // console.log(location);
+  let location = useLocation();
+  // console.log(location.pathname);
 
-  // console.log(id);
+  const idData = detailData?.filter(
+    (data) => `/detail/${data.contentId}` === location.pathname
+  );
 
-  const idData = baseData?.filter((data) => data.contentId === "100002");
-
+  // console.log(idData);
   return (
     <>
       {isLoading ? (
