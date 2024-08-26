@@ -13,6 +13,7 @@ import { SiDatadog } from "react-icons/si";
 import { TopBtn } from "../../components/TopBtn";
 import "swiper/css";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Home = () => {
   useScrollTop();
@@ -21,7 +22,7 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const pointColor = useColorModeValue("#178254", "#FFAD60");
   const pointColor_2 = useColorModeValue("#423F3E", "#fff");
-  const bg = useColorModeValue("#f9f9f9", "#011627");
+  const bg = useColorModeValue("#fdfdfd", "#011627");
   const boderStyle = useColorModeValue(
     "1px solid #a5b9b0",
     "1px solid #FFAD60"
@@ -95,6 +96,7 @@ export const Home = () => {
       ) : (
         <>
           <Box maxW={500} mx="auto" bgColor={bg}>
+            {/* <PageTitle /> */}
             <Swiper
               className="main_banner"
               modules={[Autoplay]}

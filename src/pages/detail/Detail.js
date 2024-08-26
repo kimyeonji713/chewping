@@ -11,7 +11,7 @@ export const Detail = () => {
 
   const pointColor = useColorModeValue("#178254", "#FFAD60");
   const pointColor_2 = useColorModeValue("#423F3E", "#fff");
-  const bg = useColorModeValue("#f9f9f9", "#293347");
+  const bg = useColorModeValue("#fdfdfd", "#293347");
   const fontColor = useColorModeValue("#423F3E", "#fff");
   const subBg = useColorModeValue("fff", "#53668d");
 
@@ -189,6 +189,9 @@ export const Detail = () => {
                         display={"flex"}
                         justifyContent={"center"}
                         alignItems={"center"}
+                        position={"absolute"}
+                        bottom={"30px"}
+                        left={"18px"}
                       >
                         <Text fontSize="md" fontWeight={"600"} color={"#fff"}>
                           예약하러가기

@@ -8,11 +8,11 @@ import { HelmetProvider } from "react-helmet-async";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <HelmetProvider>
-      <ChakraProvider theme={_theme}>
+    <ChakraProvider theme={_theme}>
+      <HelmetProvider>
         <ColorModeScript initialColorMode={_theme.config.initialColorMode} />
         <Router />
-      </ChakraProvider>
-    </HelmetProvider>
+      </HelmetProvider>
+    </ChakraProvider>
   </React.StrictMode>
 );
