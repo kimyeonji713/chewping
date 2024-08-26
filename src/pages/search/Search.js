@@ -1,20 +1,30 @@
-import { Box, Button, Input, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Image,
+  Input,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FiSearch } from "react-icons/fi";
 import { useScrollTop } from "../../lib/useScrollTop";
 import { searchList } from "../../api";
 import { Loading } from "../../components/Loading";
+import { Link } from "react-router-dom";
 
 export const Search = () => {
   useScrollTop();
 
   const [searchData, setSearchData] = useState();
   const [srcollresultData, setScrollResultData] = useState();
-  const [searchResult, setSearchResultData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [cityData, setCityData] = useState();
 
   const pointColor = useColorModeValue("#178254", "#fff");
+  const searchColor = useColorModeValue("#000", "#fff");
+
   const pointColor_2 = useColorModeValue("#423F3E", "#93653a");
   const bg = useColorModeValue("#fdfdfd", "#011627");
   const boderStyle = useColorModeValue(
@@ -55,9 +65,11 @@ export const Search = () => {
 
   const onSearchResult = (data) => {
     const { keyword } = data; //사용자가 넣은 값
-    const result = searchData.filter((v) => v?.doNm?.inculdes(keyword));
+    const city = searchData.filter((v) => v.doNm === keyword);
+    // const result = searchData.filter((v) => v.sigunguNm === keyword);
 
-    setSearchResultData(result);
+    setCityData(city);
+    // setSearchResultData(result);
   };
 
   console.log(searchData);
@@ -76,58 +88,122 @@ export const Search = () => {
               떠나고 싶으신가요?
             </Text>
           </Box>
-          <form
-            style={{
-              display: " flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
+          <Box
+            as="form"
+            display=" flex"
+            justifyContent="space-between"
+            alignItems="center"
+            padding={"10px"}
             onSubmit={handleSubmit(onSearchResult)}
           >
             <Input
-              style={{
-                all: "unset",
-                width: "100%",
-                borderBottom: { boderStyle },
-                marginLeft: "25px",
-                padding: "15px 0",
-                color: { pointColor },
-                fontSize: "16px",
-              }}
+              width="100%"
+              borderBottom={boderStyle}
+              marginLeft="25px"
+              padding="15px 10px"
+              color={pointColor}
+              fontSize="16px"
+              variant="flushed"
               {...register("keyword", {
                 required: "검색내용을 입력해 주세요",
               })}
               type="text"
-              placeholder="어디로 떠나고 싶으신가요?"
+              placeholder="어디로 떠나고 싶으신가요? ex) 강원도"
               _placeholder={{ color: "inherit" }}
             />
-            <Button bgColor={bg} color={pointColor} marginRight={"20px"}>
+            <Button
+              bgColor={bg}
+              color={pointColor}
+              marginRight={"20px"}
+              cursor={"pointer"}
+              fontSize={"18px"}
+            >
               <FiSearch />
             </Button>
-          </form>
-          <Text>{errors?.keyword?.message}</Text>
+          </Box>
+          <Text marginLeft={"45px"} color={pointColor}>
+            {errors?.keyword?.message}
+          </Text>
 
           <>
             {isLoading ? (
               <Loading />
             ) : (
               <>
-                {searchResult && (
+                {cityData && (
                   <Box>
-                    {searchResult?.length === 0 ? (
+                    <Text
+                      fontWeight="700"
+                      marginBottom="14px"
+                      color={searchColor}
+                      marginLeft={"35px"}
+                      marginTop={"20px"}
+                    >
+                      검색 결과
+                    </Text>
+                    {cityData?.length === 0 ? (
                       <Box padding="40px">
                         <Text>검색결과 없음</Text>
                       </Box>
                     ) : (
                       <>
-                        <Box style={{ padding: "40px", position: "relative" }}>
-                          <Text
-                            fontWeight="700"
-                            marginBottom="14px"
-                            color={"#000"}
+                        <Box
+                          style={{ padding: "10px 40px", position: "relative" }}
+                        >
+                          <Box
+                            display={"grid"}
+                            gridTemplateColumns={"repeat(2, 1fr)"}
+                            rowGap={"35px"}
+                            columnGap={"10px"}
                           >
-                            검색 결과
-                          </Text>
+                            {cityData.map((city) => (
+                              <Box key={city.contentId} w={"100%"} h={"260px"}>
+                                <Box w={"100%"} h={"260px"}>
+                                  <Link to={`/detail/${city.contentId}`}>
+                                    <Box w={"100%"} h={"200px"}>
+                                      {city.firstImageUrl ? (
+                                        <Image
+                                          w={"95%"}
+                                          h={"95%"}
+                                          objectFit={"cover"}
+                                          borderRadius={"20px"}
+                                          src={city.firstImageUrl}
+                                          alt={city.facltNm}
+                                        />
+                                      ) : (
+                                        <Image
+                                          w={"95%"}
+                                          h={"95%"}
+                                          objectFit={"cover"}
+                                          borderRadius={"20px"}
+                                          src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo-available_87543-11093.jpg?size=626&ext=jpg"
+                                          alt={city.facltNm}
+                                        />
+                                      )}
+
+                                      <Text
+                                        fontSize={"15px"}
+                                        fontWeight={"500"}
+                                        marginTop={"10px"}
+                                        textAlign={"left"}
+                                        letterSpacing={"-1px"}
+                                      >
+                                        {city.facltNm}
+                                      </Text>
+                                      <Text
+                                        fontWeight={"300"}
+                                        fontSize={"14px"}
+                                        letterSpacing={"-1px"}
+                                        textAlign={"left"}
+                                      >
+                                        {city.addr1}
+                                      </Text>
+                                    </Box>
+                                  </Link>
+                                </Box>
+                              </Box>
+                            ))}
+                          </Box>
                         </Box>
                       </>
                     )}

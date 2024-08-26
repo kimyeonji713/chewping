@@ -142,12 +142,23 @@ export const Car = () => {
                         bgColor={subBg}
                         cursor={"pointer"}
                       >
-                        <Image
-                          src={data?.firstImageUrl}
-                          w={"40%"}
-                          display={"block"}
-                          borderRadius={"20px"}
-                        />
+                        {data.firstImageUrl ? (
+                          <Image
+                            src={data?.firstImageUrl}
+                            alt={data.facltNm}
+                            w={"40%"}
+                            display={"block"}
+                            borderRadius={"20px"}
+                          />
+                        ) : (
+                          <Image
+                            w={"40%"}
+                            display={"block"}
+                            borderRadius={"20px"}
+                            src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo-available_87543-11093.jpg?size=626&ext=jpg"
+                            alt={data.facltNm}
+                          />
+                        )}
 
                         <Box padding={"15px"}>
                           <Text
@@ -157,14 +168,25 @@ export const Car = () => {
                           >
                             {data?.facltNm}
                           </Text>
-                          <Text
-                            marginTop={"15px"}
-                            fontSize={"14px"}
-                            color={fontColor}
-                            opacity={"0.8"}
-                          >
-                            {data.featureNm.slice(0, 100) + "..."}
-                          </Text>
+                          {data.featureNm ? (
+                            <Text
+                              marginTop={"15px"}
+                              fontSize={"14px"}
+                              color={fontColor}
+                              opacity={"0.8"}
+                            >
+                              {data.featureNm.slice(0, 100) + "..."}
+                            </Text>
+                          ) : (
+                            <Text
+                              marginTop={"15px"}
+                              fontSize={"14px"}
+                              color={fontColor}
+                              opacity={"0.8"}
+                            >
+                              없음
+                            </Text>
+                          )}
                         </Box>
                       </Box>
                     </Link>

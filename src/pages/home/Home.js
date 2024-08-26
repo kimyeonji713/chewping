@@ -95,7 +95,13 @@ export const Home = () => {
         <Loading />
       ) : (
         <>
-          <Box maxW={500} mx="auto" bgColor={bg}>
+          <Box
+            maxW={"500px"}
+            w={"100%"}
+            minH={"100vh"}
+            mx={"auto"}
+            bgColor={bg}
+          >
             {/* <PageTitle /> */}
             <Swiper
               className="main_banner"
@@ -308,7 +314,7 @@ export const Home = () => {
             </Box>
             {/* section_1 */}
 
-            <Box className="section_2" maxW={"500px"} padding={"10px"}>
+            <Box className="section_2" maxW={"500px"} padding={"20px"}>
               <Text
                 marginLeft={"10px"}
                 marginBottom={"10px"}
@@ -318,7 +324,6 @@ export const Home = () => {
                 추천 캠핑장
               </Text>
               <Box
-                w={"100%"}
                 display={"grid"}
                 gridTemplateColumns={"repeat(2, 1fr)"}
                 rowGap={"35px"}

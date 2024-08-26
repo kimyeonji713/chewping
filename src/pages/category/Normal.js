@@ -16,16 +16,10 @@ export const Normal = () => {
   const [scrollData, setScrollData] = useState();
   const [resultData, setResultData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const pointColor = useColorModeValue("#178254", "#FFAD60");
-  const pointColor_2 = useColorModeValue("#423F3E", "#93653a");
-  const fontColor = useColorModeValue("#423F3E", "#fff");
 
+  const fontColor = useColorModeValue("#423F3E", "#fff");
   const subBg = useColorModeValue("fff", "#53668d");
   const bg = useColorModeValue("#fdfdfd", "#011627");
-  const boderStyle = useColorModeValue(
-    "1px solid #a5b9b0",
-    "1px solid #FFAD60"
-  );
 
   useEffect(() => {
     (async () => {
@@ -148,12 +142,23 @@ export const Normal = () => {
                         bgColor={subBg}
                         cursor={"pointer"}
                       >
-                        <Image
-                          src={data?.firstImageUrl}
-                          w={"40%"}
-                          display={"block"}
-                          borderRadius={"20px"}
-                        />
+                        {data.firstImageUrl ? (
+                          <Image
+                            src={data?.firstImageUrl}
+                            alt={data.facltNm}
+                            w={"40%"}
+                            display={"block"}
+                            borderRadius={"20px"}
+                          />
+                        ) : (
+                          <Image
+                            w={"40%"}
+                            display={"block"}
+                            borderRadius={"20px"}
+                            src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo-available_87543-11093.jpg?size=626&ext=jpg"
+                            alt={data.facltNm}
+                          />
+                        )}
 
                         <Box padding={"15px"}>
                           <Text
@@ -163,14 +168,25 @@ export const Normal = () => {
                           >
                             {data?.facltNm}
                           </Text>
-                          <Text
-                            marginTop={"15px"}
-                            fontSize={"14px"}
-                            color={fontColor}
-                            opacity={"0.8"}
-                          >
-                            {data.featureNm.slice(0, 100) + "..."}
-                          </Text>
+                          {data.featureNm ? (
+                            <Text
+                              marginTop={"15px"}
+                              fontSize={"14px"}
+                              color={fontColor}
+                              opacity={"0.8"}
+                            >
+                              {data.featureNm.slice(0, 100) + "..."}
+                            </Text>
+                          ) : (
+                            <Text
+                              marginTop={"15px"}
+                              fontSize={"14px"}
+                              color={fontColor}
+                              opacity={"0.8"}
+                            >
+                              없음
+                            </Text>
+                          )}
                         </Box>
                       </Box>
                     </Link>

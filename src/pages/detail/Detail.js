@@ -65,12 +65,21 @@ export const Detail = () => {
           {idData?.map((data) => (
             <Box key={data.contentId}>
               <Box w={"100%"} h={"350px"}>
-                <Img
-                  w={"100%"}
-                  h={"100%"}
-                  src={data.firstImageUrl}
-                  alt="캠핑장"
-                ></Img>
+                {data.firstImageUrl ? (
+                  <Img
+                    w={"100%"}
+                    h={"100%"}
+                    src={data.firstImageUrl}
+                    alt={data.facltNm}
+                  />
+                ) : (
+                  <Img
+                    w={"100%"}
+                    h={"100%"}
+                    src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo-available_87543-11093.jpg?size=626&ext=jpg"
+                    alt={data.facltNm}
+                  />
+                )}
               </Box>
               <Box
                 w={"100%"}
@@ -106,7 +115,7 @@ export const Detail = () => {
                     </Text>
                   </Text>
 
-                  <Box className="option" marginTop={"30px"}>
+                  <Box className="option" marginTop={"15px"}>
                     <Text
                       marginBottom={"15px"}
                       fontSize={"16px"}
@@ -114,9 +123,15 @@ export const Detail = () => {
                     >
                       소개글
                     </Text>
-                    <Text fontSize={"15px"} fontWeight={"300"}>
-                      {data.intro}
-                    </Text>
+                    {data.intro ? (
+                      <Text fontSize={"15px"} fontWeight={"300"}>
+                        {data.intro}
+                      </Text>
+                    ) : (
+                      <Text fontSize={"15px"} fontWeight={"300"}>
+                        없음
+                      </Text>
+                    )}
 
                     <Text
                       marginTop={"20px"}
@@ -146,6 +161,21 @@ export const Detail = () => {
                       fontWeight={"300"}
                     >
                       {data.sbrsCl}
+                    </Text>
+
+                    <Text
+                      marginTop={"15px"}
+                      fontSize={"15px"}
+                      fontWeight={"600"}
+                    >
+                      주변 이용 시설
+                    </Text>
+                    <Text
+                      marginTop={"5px"}
+                      fontSize={"14px"}
+                      fontWeight={"300"}
+                    >
+                      {data.posblFcltyCl}
                     </Text>
 
                     <Text

@@ -41,6 +41,6 @@ export const detailList = () => {
 export const searchList = (keyword, pageNum) => {
   const searchUrl =
     baseUrl +
-    `basedList?serviceKey=${serviceKey}&numOfRows=30&pageNo=${pageNum}&MobileOS=WIN&MobileApp=chewping&_type=json`;
+    `basedList?serviceKey=${serviceKey}&numOfRows=999&pageNo=${pageNum}&MobileOS=WIN&MobileApp=chewping&_type=json`;
   return fetch(searchUrl).then((res) => res.json());
 };
