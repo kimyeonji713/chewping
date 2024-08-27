@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/chewping/static/css/main.3c70d7db.css",
+    "main.js": "/chewping/static/js/main.3bfe9b07.js",
+    "index.html": "/chewping/index.html",
+    "main.3c70d7db.css.map": "/chewping/static/css/main.3c70d7db.css.map",
+    "main.3bfe9b07.js.map": "/chewping/static/js/main.3bfe9b07.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c70d7db.css",
+    "static/js/main.3bfe9b07.js"
+  ]
+}
