@@ -39,7 +39,6 @@ export const Home = () => {
           },
         } = await recomList();
 
-        // console.log(item);
         setIsLoading(false);
         setRecomData(item);
       } catch (error) {
@@ -47,8 +46,6 @@ export const Home = () => {
       }
     })();
   }, []);
-
-  // console.log(recomData);
 
   const campaign = [
     {

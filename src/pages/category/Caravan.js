@@ -43,7 +43,6 @@ export const Caravan = () => {
           },
         } = await scrollList(1);
 
-        // console.log(item);
         setScrollData(item);
         setResultData(body);
         setIsLoading(false);
@@ -53,15 +52,11 @@ export const Caravan = () => {
     })();
   }, []);
 
-  // console.log(basedData);
-  // console.log(resultData);
-
   const base = scrollData?.filter((data) => data.induty === "카라반");
 
   const fetchData = async () => {
     try {
       let page = (resultData.pageNo += 1);
-      console.log(page);
       if (resultData.pageNo <= resultData.totalCount) {
         const {
           response: {

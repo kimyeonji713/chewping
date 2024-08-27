@@ -37,7 +37,6 @@ export const Normal = () => {
           },
         } = await scrollList(1);
 
-        // console.log(item);
         setScrollData(item);
         setResultData(body);
         setIsLoading(false);
@@ -47,15 +46,11 @@ export const Normal = () => {
     })();
   }, []);
 
-  // console.log(basedData);
-  // console.log(resultData);
-
   const normalBase = scrollData?.filter((data) => data.induty === "일반야영장");
 
   const fetchData = async () => {
     try {
       let page = (resultData.pageNo += 1);
-      console.log(page);
       if (resultData.pageNo <= resultData.totalCount) {
         const {
           response: {
@@ -64,7 +59,6 @@ export const Normal = () => {
             },
           },
         } = await scrollList(page);
-        // console.log(page);
         setScrollData(scrollData.concat(item));
       } else {
       }
@@ -72,8 +66,6 @@ export const Normal = () => {
       console.log(error);
     }
   };
-
-  // console.log(normalBase);
 
   return (
     <>

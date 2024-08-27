@@ -46,7 +46,6 @@ export const Search = () => {
           },
         } = await searchList(1);
 
-        // console.log(item);
         setSearchData(item);
         setScrollResultData(body);
         setIsLoading(false);
@@ -65,13 +64,9 @@ export const Search = () => {
   const onSearchResult = (data) => {
     const { keyword } = data; //사용자가 넣은 값
     const city = searchData.filter((v) => v.doNm === keyword);
-    // const result = searchData.filter((v) => v.sigunguNm === keyword);
 
     setCityData(city);
-    // setSearchResultData(result);
   };
-
-  console.log(searchData);
 
   return (
     <>

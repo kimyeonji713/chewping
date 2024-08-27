@@ -27,7 +27,6 @@ export const Detail = () => {
           },
         } = await detailList();
 
-        // console.log(item);
         setDetailData(item);
         setIsLoading(false);
       } catch (error) {
@@ -36,20 +35,11 @@ export const Detail = () => {
     })();
   }, []);
 
-  console.log(detailData);
-
-  // const {
-  //   state: { id },
-  // } = useLocation();
-
   let location = useLocation();
-  // console.log(location.pathname);
-
   const idData = detailData?.filter(
     (data) => `/detail/${data.contentId}` === location.pathname
   );
 
-  // console.log(idData);
   return (
     <>
       {isLoading ? (

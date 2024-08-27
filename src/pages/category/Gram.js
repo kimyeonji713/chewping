@@ -42,7 +42,6 @@ export const Gram = () => {
           },
         } = await scrollList(1);
 
-        // console.log(item);
         setScrollData(item);
         setResultData(body);
         setIsLoading(false);
@@ -52,15 +51,11 @@ export const Gram = () => {
     })();
   }, []);
 
-  // console.log(basedData);
-  // console.log(resultData);
-
   const base = scrollData?.filter((data) => data.induty === "글램핑");
 
   const fetchData = async () => {
     try {
       let page = (resultData.pageNo += 1);
-      console.log(page);
       if (resultData.pageNo <= resultData.totalCount) {
         const {
           response: {

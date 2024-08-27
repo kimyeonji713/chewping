@@ -36,7 +36,6 @@ export const Pet = () => {
           },
         } = await scrollList(1);
 
-        // console.log(item);
         setScrollData(item);
         setResultData(body);
         setIsLoading(false);
@@ -46,15 +45,11 @@ export const Pet = () => {
     })();
   }, []);
 
-  // console.log(basedData);
-  // console.log(resultData);
-
   const base = scrollData?.filter((data) => data.animalCmgCl === "가능");
 
   const fetchData = async () => {
     try {
       let page = (resultData.pageNo += 1);
-      console.log(page);
       if (resultData.pageNo <= resultData.totalCount) {
         const {
           response: {

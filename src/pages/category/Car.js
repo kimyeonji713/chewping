@@ -44,7 +44,6 @@ export const Car = () => {
           },
         } = await scrollList(1);
 
-        // console.log(item);
         setScrollData(item);
         setResultData(body);
         setIsLoading(false);
@@ -54,15 +53,11 @@ export const Car = () => {
     })();
   }, []);
 
-  // console.log(basedData);
-  // console.log(resultData);
-
   const base = scrollData?.filter((data) => data.induty === "자동차야영장");
 
   const fetchData = async () => {
     try {
       let page = (resultData.pageNo += 1);
-      console.log(page);
       if (resultData.pageNo <= resultData.totalCount) {
         const {
           response: {
