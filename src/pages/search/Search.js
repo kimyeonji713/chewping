@@ -26,7 +26,7 @@ export const Search = () => {
   const searchColor = useColorModeValue("#000", "#fff");
 
   const pointColor_2 = useColorModeValue("#423F3E", "#93653a");
-  const bg = useColorModeValue("#fdfdfd", "#011627");
+  const bg = useColorModeValue("#fff", "#1a202c");
   const boderStyle = useColorModeValue(
     "1px solid #a5b9b0",
     "1px solid #FFAD60"

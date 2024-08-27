@@ -16,7 +16,7 @@ export const Header = () => {
   const { toggleColorMode } = useColorMode();
   const Icon = useColorModeValue(FaMoon, FaSun);
   const logoColor = useColorModeValue("#178254", "#FFAD60");
-  const bg = useColorModeValue("#fdfdfd", "#011627");
+  const bg = useColorModeValue("#fff", "#1a202c");
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const scrollHandler = () => {
@@ -39,7 +39,7 @@ export const Header = () => {
       justifyContent={"space-between"}
       alignItems={"center"}
       bgColor={bg}
-      position={scrollPosition < 100 ? " relative" : "fixed"}
+      position={scrollPosition < 100 ? " relative" : "absolute"}
       top={"0"}
       left={"0"}
       zIndex={"10"}

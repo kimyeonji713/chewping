@@ -1,7 +1,7 @@
 import { Box, Text, useColorModeValue } from "@chakra-ui/react";
 
 export const Footer = () => {
-  const bg = useColorModeValue("#fdfdfd", "#011627");
+  const bg = useColorModeValue("#fff", "#1a202c");
   const shadow = useColorModeValue("rgb(232, 234, 246) 0px 5px 5px 5px;");
   const pointColor = useColorModeValue("#423F3E", "#fff");
   const borderStyle = useColorModeValue("1px solid #423F3E", "1px solid #fff");

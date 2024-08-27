@@ -3,7 +3,7 @@ import { PulseLoader } from "react-spinners";
 
 export const Loading = () => {
   const point = useColorModeValue("#178254", "#FFAD60");
-  const bg = useColorModeValue("#fdfdfd", "#011627");
+  const bg = useColorModeValue("#fff", "#1a202c");
 
   return (
     <Box

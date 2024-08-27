@@ -58,7 +58,7 @@ export const Detail = () => {
           maxW={"500px"}
           w={"100%"}
           mx={"auto"}
-          minHeight={"1000px"}
+          minHeight={"1100px"}
           bgColor={bg}
           position={"relative"}
         >
@@ -83,7 +83,7 @@ export const Detail = () => {
               </Box>
               <Box
                 w={"100%"}
-                h={"670px"}
+                h={"800px"}
                 bgColor={bg}
                 borderRadius={"30px 30px 0 0 "}
                 position={"absolute"}

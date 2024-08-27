@@ -22,7 +22,7 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const pointColor = useColorModeValue("#178254", "#FFAD60");
   const pointColor_2 = useColorModeValue("#423F3E", "#fff");
-  const bg = useColorModeValue("#fdfdfd", "#011627");
+  const bg = useColorModeValue("#fff", "#1a202c");
   const boderStyle = useColorModeValue(
     "1px solid #a5b9b0",
     "1px solid #FFAD60"

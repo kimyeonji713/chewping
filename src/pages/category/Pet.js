@@ -18,7 +18,7 @@ export const Pet = () => {
   const [isLoading, setIsLoading] = useState(true);
   const fontColor = useColorModeValue("#423F3E", "#fff");
   const subBg = useColorModeValue("fff", "#53668d");
-  const bg = useColorModeValue("#fdfdfd", "#011627");
+  const bg = useColorModeValue("#fff", "#1a202c");
 
   useEffect(() => {
     (async () => {
