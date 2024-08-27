@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { routes } from "../../routes";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Gram = () => {
   useScrollTop();
@@ -16,8 +17,7 @@ export const Gram = () => {
   const [scrollData, setScrollData] = useState();
   const [resultData, setResultData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const pointColor = useColorModeValue("#178254", "#FFAD60");
-  const pointColor_2 = useColorModeValue("#423F3E", "#93653a");
+
   const fontColor = useColorModeValue("#423F3E", "#fff");
 
   const subBg = useColorModeValue("fff", "#53668d");
@@ -77,19 +77,14 @@ export const Gram = () => {
     }
   };
 
-  // const default_img =
-  //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvtLcEbK72DdI2-0yjNOHLvzQeJqLRKhirxA&s";
-  // const handleImage = (e) => {
-  //   e.target.src = default_img;
-  //   console.log(e.target.src);
-  // };
-
   return (
     <>
       {isLoading ? (
         <Loading />
       ) : (
         <Box maxW={"500px"} w={"100%"} mx={"auto"} minH={"120vh"} bgColor={bg}>
+          <PageTitle title={"글램핑"} />
+
           {scrollData && (
             <InfiniteScroll
               dataLength={scrollData.length}

@@ -13,6 +13,7 @@ import { useScrollTop } from "../../lib/useScrollTop";
 import { searchList } from "../../api";
 import { Loading } from "../../components/Loading";
 import { Link } from "react-router-dom";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Search = () => {
   useScrollTop();
@@ -24,8 +25,6 @@ export const Search = () => {
 
   const pointColor = useColorModeValue("#178254", "#fff");
   const searchColor = useColorModeValue("#000", "#fff");
-
-  const pointColor_2 = useColorModeValue("#423F3E", "#93653a");
   const bg = useColorModeValue("#fff", "#1a202c");
   const boderStyle = useColorModeValue(
     "1px solid #a5b9b0",
@@ -80,6 +79,8 @@ export const Search = () => {
         <Loading />
       ) : (
         <Box maxW={"500px"} w={"100%"} minH={"100vh"} mx={"auto"} bgColor={bg}>
+          <PageTitle title={"검색"} />
+
           <Box w={"100%"} padding={"150px 40px 80px 40px"}>
             <Text fontSize={"45px"} fontWeight={"400"} color={pointColor}>
               어디로

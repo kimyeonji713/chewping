@@ -95,6 +95,7 @@ export const Home = () => {
         <Loading />
       ) : (
         <>
+          <PageTitle title={"홈"} />
           <Box
             maxW={"500px"}
             w={"100%"}
@@ -102,7 +103,6 @@ export const Home = () => {
             mx={"auto"}
             bgColor={bg}
           >
-            {/* <PageTitle /> */}
             <Swiper
               className="main_banner"
               modules={[Autoplay]}

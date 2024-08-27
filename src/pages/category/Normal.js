@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
 import { routes } from "../../routes";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Normal = () => {
   useScrollTop();
@@ -80,6 +81,8 @@ export const Normal = () => {
         <Loading />
       ) : (
         <Box maxW={"500px"} mx={"auto"} bgColor={bg}>
+          <PageTitle title={"일반 야영장"} />
+
           {scrollData && (
             <InfiniteScroll
               dataLength={scrollData.length}

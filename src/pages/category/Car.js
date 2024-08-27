@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { routes } from "../../routes";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Car = () => {
   useScrollTop();
@@ -84,6 +85,8 @@ export const Car = () => {
         <Loading />
       ) : (
         <Box maxW={"500px"} w={"100%"} mx={"auto"} bgColor={bg}>
+          <PageTitle title={"자동차 야영장"} />
+
           {scrollData && (
             <InfiniteScroll
               dataLength={scrollData.length}

@@ -4,6 +4,7 @@ import { detailList } from "../../api";
 import { Link, useLocation } from "react-router-dom";
 import { BsTelephone } from "react-icons/bs";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Detail = () => {
   const [detailData, setDetailData] = useState();
@@ -64,6 +65,7 @@ export const Detail = () => {
         >
           {idData?.map((data) => (
             <Box key={data.contentId}>
+              <PageTitle title={data.facltNm} />
               <Box w={"100%"} h={"350px"}>
                 {data.firstImageUrl ? (
                   <Img

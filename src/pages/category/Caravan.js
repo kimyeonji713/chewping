@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { routes } from "../../routes";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Caravan = () => {
   useScrollTop();
@@ -83,6 +84,8 @@ export const Caravan = () => {
         <Loading />
       ) : (
         <Box maxW={"500px"} w={"100%"} mx={"auto"} bgColor={bg}>
+          <PageTitle title={"카라반"} />
+
           {scrollData && (
             <InfiniteScroll
               dataLength={scrollData.length}

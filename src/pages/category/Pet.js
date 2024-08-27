@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { FaChevronLeft } from "react-icons/fa";
 import { routes } from "../../routes";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Pet = () => {
   useScrollTop();
@@ -76,6 +77,8 @@ export const Pet = () => {
         <Loading />
       ) : (
         <Box maxW={"500px"} w={"100%"} mx={"auto"} bgColor={bg}>
+          <PageTitle title={"반려동물 동반"} />
+
           {scrollData && (
             <InfiniteScroll
               dataLength={scrollData.length}

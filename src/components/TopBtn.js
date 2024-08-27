@@ -19,6 +19,7 @@ export const TopBtn = () => {
       right={"5%"}
       bgColor={bg}
       colorScheme={scheme}
+      color={"#fff"}
       w={"50px"}
       h={"50px"}
       zIndex={"10"}
