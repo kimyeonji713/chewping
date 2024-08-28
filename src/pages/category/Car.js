@@ -17,16 +17,9 @@ export const Car = () => {
   const [scrollData, setScrollData] = useState();
   const [resultData, setResultData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const pointColor = useColorModeValue("#178254", "#FFAD60");
-  const pointColor_2 = useColorModeValue("#423F3E", "#93653a");
   const fontColor = useColorModeValue("#423F3E", "#fff");
-
   const subBg = useColorModeValue("fff", "#53668d");
   const bg = useColorModeValue("#fff", "#1a202c");
-  const boderStyle = useColorModeValue(
-    "1px solid #a5b9b0",
-    "1px solid #FFAD60"
-  );
 
   // "#293347"
   useEffect(() => {

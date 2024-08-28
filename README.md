@@ -46,17 +46,25 @@
 
 ### 프로젝트 기획
 
-- 포인트 색상
+- 색상
 
->
+> light : "#178254"(logo),#fff(bg), "#423F3E"(font)
+> dark : "#FFAD60"(logo),#1a202c(bg), "#fff"(font)
 
 - 폰트
 
->
+> heading: `"Do Hyeon", sans-serif`,
+> body: `"Noto Sans KR", sans-serif`,
 
 - 레퍼런스 UI
 
->
+> <img src="https://platum.kr/wp-content/uploads/2021/10/camp.png" alt="camfit">
+
+> https://platum.kr/wp-content/uploads/2021/10/camp.png
+
+> <img src="https://img.freepik.com/premium-psd/camping-reservation-mobile-app-ui-kit_553413-1042.jpg" alt="campingapp">
+
+> https://img.freepik.com/premium-psd/camping-reservation-mobile-app-ui-kit_553413-1042.jpg
 
 ### 프로젝트하면서 느낀점 및 개선방안
 
