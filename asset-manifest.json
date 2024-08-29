@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/chewping/static/css/main.3c70d7db.css",
-    "main.js": "/chewping/static/js/main.3bfe9b07.js",
+    "main.js": "/chewping/static/js/main.4d3b2c9c.js",
     "index.html": "/chewping/index.html",
     "main.3c70d7db.css.map": "/chewping/static/css/main.3c70d7db.css.map",
-    "main.3bfe9b07.js.map": "/chewping/static/js/main.3bfe9b07.js.map"
+    "main.4d3b2c9c.js.map": "/chewping/static/js/main.4d3b2c9c.js.map"
   },
   "entrypoints": [
     "static/css/main.3c70d7db.css",
-    "static/js/main.3bfe9b07.js"
+    "static/js/main.4d3b2c9c.js"
   ]
 }
