@@ -22,6 +22,7 @@ export const Search = () => {
   const [srcollresultData, setScrollResultData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [cityData, setCityData] = useState();
+  const [resultData, setCityResultData] = useState();
 
   const pointColor = useColorModeValue("#178254", "#fff");
   const searchColor = useColorModeValue("#000", "#fff");
@@ -63,10 +64,16 @@ export const Search = () => {
 
   const onSearchResult = (data) => {
     const { keyword } = data; //사용자가 넣은 값
+    console.log(keyword);
     const city = searchData.filter((v) => v.doNm === keyword);
 
+    // const result = searchData.filter((v) => v.addr1.includes(keyword));
+
     setCityData(city);
+
+    // setCityResultData(result);
   };
+  console.log(resultData);
 
   return (
     <>

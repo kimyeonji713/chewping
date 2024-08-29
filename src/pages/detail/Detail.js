@@ -36,6 +36,7 @@ export const Detail = () => {
   }, []);
 
   let location = useLocation();
+
   const idData = detailData?.filter(
     (data) => `/detail/${data.contentId}` === location.pathname
   );
