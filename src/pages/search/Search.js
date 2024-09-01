@@ -64,7 +64,7 @@ export const Search = () => {
 
   const onSearchResult = (data) => {
     const { keyword } = data; //사용자가 넣은 값
-    console.log(keyword);
+    // console.log(keyword);
     // const city = searchData.filter((v) => v.doNm === keyword);
 
     const city = searchData.filter((v) => v.addr1.includes(keyword));
@@ -73,7 +73,7 @@ export const Search = () => {
 
     // setCityResultData(result);
   };
-  console.log(resultData);
+  // console.log(resultData);
 
   return (
     <>
